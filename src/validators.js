@@ -1,208 +1,339 @@
 export { maxDistance } from './gisValidators';
+
 /**
- * For **Location** - `value` is more precise than `validValue`
+ * Checks whether the `value` is defined or not
  * @example
- * getValidator({ precision: 10 })({ accuracy: 4 }) => true
- * getValidator({ precision: 10 })({ accuracy: 12 }) => false
+ * required()(4) => true
+ * required()(null) => false
+ * required()('') => false
+ */
+export const required = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => !!value;
+  return validator;
+};
+/**
+ * For **Location** object - `value` is more precise than `precision`
+ * @param {Number} precision - accuracy in meters
+ * @example
+ * precision(10)({ accuracy: 4 }) => true
+ * precision(10)({ accuracy: 12 }) => false
+ * precision(10)({ coords: { accuracy: 4 }}) => true
+ * precision(10)({ coords: { accuracy: 12 }}) => false
  */
 export const precision = precision => {
-  // value actualy is a location object, returned by the GPS
-  return value => {
+  /**
+   * @param {!Object} value - location object, returned by the GPS
+   * @property {Number} [value.accuracy]
+   * @property {Object} [value.coords]
+   * @property {!Number} value.coords.accuracy
+   * @return {Boolean}
+   */
+  const validator = value => {
     const coords = value.coords || value;
     return coords.accuracy <= precision;
   };
+  return validator;
 };
 /**
- * For **Array**, **String** - `value` length is greater than or equal to `min`
+ * For **Array**, **String** - `value`'s length is greater than or equal to `min`
+ * @param {!Number} min - minimum length value
  * @example
- * getValidator({ min: 3 })('as') => false
- * getValidator({ min: 3 })('asd') => true
- * getValidator({ min: 3 })('asdf') => true
+ * min(3)('as') => false
+ * min(3)('asd') => true
+ * min(3)('asdf') => true
  */
 export const min = min => {
-  return value => value.length >= min;
+  /**
+   * @param {!(Array.<*>|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => value.length >= min;
+  return validator;
 };
 /**
- * For **Array**, **String** - `value` length is greater than or equal to `max`
+ * For **Array**, **String** - `value`'s length is greater than or equal to `max`
+ * @param {!Number} max - maximum length value
  * @example
- * getValidator({ max: 3 })('as') => true
- * getValidator({ max: 3 })('asd') => true
- * getValidator({ max: 3 })('asdf') => false
+ * max(3)('as') => true
+ * max(3)('asd') => true
+ * max(3)('asdf') => false
  */
 export const max = max => {
-  return value => value.length <= max;
+  /**
+   * @param {!(Array.<*>|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => value.length <= max;
+  return validator;
 };
 /**
- * For **String** - `value` contains `validValue`
+ * For **Array**, **String** - `value` contains `validValue`
+ * @param {*} validValue
  * @example
- * getValidator({ contain: 'test' })('testA') => true
- * getValidator({ contain: 'test' })('B test') => true
- * getValidator({ contain: 'test' })('asd') => false
+ * contain('test')('testA') => true
+ * contain('test')('B test') => true
+ * contain('test')([1, 'test'])) => true
+ * contain('test')('asd') => false
  */
 export const contain = validValue => {
-  return value => {
+  /**
+   * @param {!(Array.<*>|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return value ? value.indexOf(validValue) > -1 : false;
   };
+  return validator;
 };
+
 /**
- * For **String** - `value` contains `validValue`
+ * For **Array**, **String** - `value` contains `validValue`
+ * @param {*} validValue
  * @example
- * getValidator({ notContain: 'test' })('testA') => false
- * getValidator({ notContain: 'test' })('B test') => false
- * getValidator({ notContain: 'test' })('asd') => true
+ * notContain('test'))('testA') => false
+ * notContain('test'))('B test') => false
+ * notContain('test')([1, 'test'])) => false
+ * notContain('test'))('asd') => true
  */
 export const notContain = validValue => {
-  return value => {
+  /**
+   * @param {!(Array.<*>|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return value ? value.indexOf(validValue) === -1 : false;
   };
+  return validator;
 };
 /**
  * For **String** - `value` is equal to `validValue`
+ * @param {String} validValue
  * @example
- * getValidator({ like: 'test' })('test') => true
- * getValidator({ like: 'test' })('Test') => false
- * getValidator({ like: 'test' })('asdasd') => false
+ * like('test')('test') => true
+ * like('test')('Test') => false
+ * like('test')('asdasd') => false
  */
 export const like = validValue => {
-  return value => {
-    if (!value) return false;
+  /**
+   * @param {String} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    if (!value && validValue) return false;
+    if (value && !validValue) return false;
+    if (!value && !validValue) return true;
     return value ? value.toString() === validValue.toString() : false;
   };
+  return validator;
 };
+
 /**
  * For **String** - `value` is not equal to `validValue`
+ * @param {String} validValue
  * @example
- * getValidator({ notLike: 'test' })('asd') => true
- * getValidator({ notLike: 'test' })('Test') => false
- * getValidator({ notLike: 'test' })('test') => false
+ * notLike('test')('asd') => true
+ * notLike('test')('Test') => true
+ * notLike('test')('test') => false
  */
 export const notLike = validValue => {
-  return value => {
-    if (!value) return false;
+  /**
+   * @param {String} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    if (!value && validValue) return false;
+    if (value && !validValue) return false;
+    if (!value && !validValue) return true;
     return value ? value.toString() !== validValue.toString() : false;
   };
+  return validator;
 };
+
 /**
  * For **Number** - `value` is equal to `validValue`
+ * @param {!Number} validValue
  * @example
- * getValidator({ equal: 2 })(2) => true
- * getValidator({ equal: 2 })(22) => false
- * getValidator({ equal: 'test' })('test') => false
+ * equal(2)(2) => true
+ * equal(2)(22) => false
+ * equal('test')('test') => false
  */
 export const equal = validValue => {
-  return value => {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return Number(validValue) === Number(value);
   };
+  return validator;
 };
 /**
  * For **Number** - `value` is not equal to `validValue`
+ * @param {!Number} validValue
  * @example
- * getValidator({ notEqual: 1 })(2) => true
- * getValidator({ notEqual: 1 })(1) => false
- * getValidator({ notEqual: 'test' })('test') => true
- * getValidator({ notEqual: 'test' })('asdd') => true
+ * notEqual(1)(2) => true
+ * notEqual(1)(1) => false
+ * notEqual('test')('test') => true
+ * notEqual('test')('asdd') => true
  */
 export const notEqual = validValue => {
-  return value => {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return Number(value) !== Number(validValue);
   };
+  return validator;
 };
 /**
  * For **Number** - `value` is in range of `validValue`
+ * @param {!Array.<Number>} validValue - as range array
  * @example
- * getValidator({ between: [1, 4] })(1) => true
- * getValidator({ between: [1, 4] })(4) => true
- * getValidator({ between: [1, 4] })(6) => false
+ * between([1, 4])(1) => true
+ * between([1, 4])(4) => true
+ * between([1, 4])(6) => false
  */
 export const between = validValue => {
-  return value => Number(validValue[0]) <= Number(value) && Number(validValue[1]) >= Number(value);
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => Number(validValue[0]) <= Number(value) && Number(validValue[1]) >= Number(value);
+  return validator;
 };
+
 /**
  * For **Number** - `value` is not in range of `validValue`
+ * @param {!Array.<Number>} validValue - as range array
  * @example
- * getValidator({ notBetween: [1, 4] })(1) => false
- * getValidator({ notBetween: [1, 4] })(2) => false
- * getValidator({ notBetween: [1, 4] })(4) => false
- * getValidator({ notBetween: [1, 4] })(6) => true
+ * notBetween([1, 4])(1) => false
+ * notBetween([1, 4])(2) => false
+ * notBetween([1, 4])(4) => false
+ * notBetween([1, 4])(6) => true
  */
 export const notBetween = validValue => {
-  return value => Number(validValue[0]) > Number(value) || Number(validValue[1]) < Number(value);
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => Number(validValue[0]) > Number(value) || Number(validValue[1]) < Number(value);
+  return validator;
 };
 /**
  * For **Number, String** - `value` is in `validValue` array
+ * @param {!Array.<*>} validValue
  * @example
- * getValidator({ inValues: [1, 2, 3] })(1) => true
- * getValidator({ inValues: [1, 2, 3] })(2) => true
- * getValidator({ inValues: [1, 2, 3] })(3) => true
- * getValidator({ inValues: [1, 2, 3] })(4) => false
+ * inValues([1, 2, 3])(1) => true
+ * inValues([1, 2, 3])(2) => true
+ * inValues([1, 2, 3])(3) => true
+ * inValues([1, 2, 3])(4) => false
  */
 export const inValues = validValue => {
-  return value => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     if (!value) return false;
     const valuesIn = validValue.map(v => v.toString());
     return valuesIn.indexOf(value.toString()) > -1;
   };
+  return validator;
 };
 /**
  * For **Number, String** - `value` is not in `validValue` array
+ * @param {!Array.<*>} validValue
  * @example
- * getValidator({ notInValues: [1, 2, 3] })(4) => true
- * getValidator({ notInValues: [1, 2, 3] })(3) => false
- * getValidator({ notInValues: [1, 2, 3] })(2) => false
- * getValidator({ notInValues: [1, 2, 3] })(1) => false
+ * notInValues([1, 2, 3])(4) => true
+ * notInValues([1, 2, 3])(3) => false
+ * notInValues([1, 2, 3])(2) => false
+ * notInValues([1, 2, 3])(1) => false
  */
 export const notInValues = validValue => {
-  return value => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     if (!value) return false;
     const valuesNotIn = validValue.map(v => v.toString());
     return valuesNotIn.indexOf(value.toString()) === -1;
   };
+  return validator;
 };
 /**
  * For **Number** - `value` is greater than `validValue`
+ * @param {!Number} validValue
  * @example
- * getValidator({ greaterThan: 2 })(12) => true
- * getValidator({ greaterThan: 2 })(2) => false
- * getValidator({ greaterThan: 2 })(1) => false
+ * greaterThan(2)(12) => true
+ * greaterThan(2)(2) => false
+ * greaterThan(2)(1) => false
  */
 export const greaterThan = validValue => {
-  return value => {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return Number(value) > Number(validValue);
   };
+  return validator;
 };
 /**
  * For **Number** - `value` is greater than or equal to `validValue`
+ * @param {!Number} validValue
  * @example
- * getValidator({ greaterThanOrEqual: 2 })(2) => true
- * getValidator({ greaterThanOrEqual: 2 })(12) => true
- * getValidator({ greaterThanOrEqual: 2 })(1) => false
+ * greaterThanOrEqual(2)(2) => true
+ * greaterThanOrEqual(2)(12) => true
+ * greaterThanOrEqual(2)(1) => false
  */
 export const greaterThanOrEqual = validValue => {
-  return value => {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return Number(value) >= Number(validValue);
   };
+  return validator;
 };
 /**
  * For **Number** - `value` is less than `validValue`
+ * @param {!Number} validValue
  * @example
- * getValidator({ lessThan: 2 })(1) => true
- * getValidator({ lessThan: 2 })(0) => true
- * getValidator({ lessThan: 2 })(2) => false
+ * lessThan(2)(1) => true
+ * lessThan(2)(0) => true
+ * lessThan(2)(2) => false
  */
 export const lessThan = validValue => {
-  return value => {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
     return Number(value) < Number(validValue);
   };
+  return validator;
 };
 /**
  * For **Number** - `value` is less than or equal `validValue`
+ * @param {!Number} validValue
  * @example
- * getValidator({ lessThanOrEqual: 2 })(2) => true
- * getValidator({ lessThanOrEqual: 2 })(1) => true
- * getValidator({ lessThanOrEqual: 2 })(22) => false
+ * lessThanOrEqual(2)(2) => true
+ * lessThanOrEqual(2)(1) => true
+ * lessThanOrEqual(2)(22) => false
  */
 export const lessThanOrEqual = validValue => {
-  return value => {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */ const validator = value => {
     return Number(value) <= Number(validValue);
   };
+  return validator;
 };

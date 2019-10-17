@@ -2,6 +2,19 @@ import { assert } from 'chai';
 import { addValidator, getValidator } from '../src/index';
 
 describe('Tests for Validators', () => {
+  it('Throws and error when validator parameter is undefined', () => {
+    assert.throws(() => {
+      getValidator();
+    }, "'validator' must be an object with a single property, which must be equal to one of the validator functions. For example: { required: null }, { precision: 4 }, { between: [1, 4] }, { maxDistance: 100 }");
+  });
+
+  it('Throws and error when validator does not exist', () => {
+    const name = 'nonExistingValidator';
+    assert.throws(() => {
+      getValidator({ [name]: 123 });
+    }, `Validator '${name}' could not be found! Try to define it with: addValidator(${name}, <callback>)`);
+  });
+
   it('Get a validator', () => {
     const validator = getValidator({ precision: 4 });
     assert.isDefined(validator);
@@ -17,6 +30,18 @@ describe('Tests for Validators', () => {
     assert.isFunction(validator);
 
     validator(true);
+  });
+
+  it('Test "required" validator', () => {
+    const validator = getValidator({ required: null });
+    assert.isTrue(validator('asd'));
+    assert.isTrue(validator({ a: 'test' }));
+    assert.isTrue(validator(1));
+    assert.isTrue(validator(true));
+    assert.isFalse(validator());
+    assert.isFalse(validator(''));
+    assert.isFalse(validator(undefined));
+    assert.isFalse(validator(null));
   });
 
   it('Test "precision" validator', () => {

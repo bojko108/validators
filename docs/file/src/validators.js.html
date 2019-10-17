@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/validators.js | validators</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Set of custom validation functions."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="validators"><meta property="twitter:description" content="Set of custom validation functions."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/bojko108/validators.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-maxDistance">maxDistance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addValidator">addValidator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidator">getValidator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-degreesToMeters">degreesToMeters</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getDistance">getDistance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-metersToDegrees">metersToDegrees</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toDegrees">toDegrees</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toRadians">toRadians</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-between">between</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-contain">contain</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-equal">equal</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThan">greaterThan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThanOrEqual">greaterThanOrEqual</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-inValues">inValues</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThan">lessThan</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThanOrEqual">lessThanOrEqual</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-like">like</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-max">max</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-min">min</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notBetween">notBetween</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notContain">notContain</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notEqual">notEqual</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notInValues">notInValues</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notLike">notLike</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-required">required</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/validators.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export { maxDistance } from &apos;./gisValidators&apos;;
+
+/**
+ * Checks whether the `value` is defined or not
+ * @example
+ * required()(4) =&gt; true
+ * required()(null) =&gt; false
+ * required()(&apos;&apos;) =&gt; false
+ */
+export const required = () =&gt; {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; !!value;
+  return validator;
+};
+/**
+ * For **Location** object - `value` is more precise than `precision`
+ * @param {Number} precision - accuracy in meters
+ * @example
+ * precision(10)({ accuracy: 4 }) =&gt; true
+ * precision(10)({ accuracy: 12 }) =&gt; false
+ * precision(10)({ coords: { accuracy: 4 }}) =&gt; true
+ * precision(10)({ coords: { accuracy: 12 }}) =&gt; false
+ */
+export const precision = precision =&gt; {
+  /**
+   * @param {!Object} value - location object, returned by the GPS
+   * @property {Number} [value.accuracy]
+   * @property {Object} [value.coords]
+   * @property {!Number} value.coords.accuracy
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    const coords = value.coords || value;
+    return coords.accuracy &lt;= precision;
+  };
+  return validator;
+};
+/**
+ * For **Array**, **String** - `value`&apos;s length is greater than or equal to `min`
+ * @param {!Number} min - minimum length value
+ * @example
+ * min(3)(&apos;as&apos;) =&gt; false
+ * min(3)(&apos;asd&apos;) =&gt; true
+ * min(3)(&apos;asdf&apos;) =&gt; true
+ */
+export const min = min =&gt; {
+  /**
+   * @param {!(Array.&lt;*&gt;|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; value.length &gt;= min;
+  return validator;
+};
+/**
+ * For **Array**, **String** - `value`&apos;s length is greater than or equal to `max`
+ * @param {!Number} max - maximum length value
+ * @example
+ * max(3)(&apos;as&apos;) =&gt; true
+ * max(3)(&apos;asd&apos;) =&gt; true
+ * max(3)(&apos;asdf&apos;) =&gt; false
+ */
+export const max = max =&gt; {
+  /**
+   * @param {!(Array.&lt;*&gt;|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; value.length &lt;= max;
+  return validator;
+};
+/**
+ * For **Array**, **String** - `value` contains `validValue`
+ * @param {*} validValue
+ * @example
+ * contain(&apos;test&apos;)(&apos;testA&apos;) =&gt; true
+ * contain(&apos;test&apos;)(&apos;B test&apos;) =&gt; true
+ * contain(&apos;test&apos;)([1, &apos;test&apos;])) =&gt; true
+ * contain(&apos;test&apos;)(&apos;asd&apos;) =&gt; false
+ */
+export const contain = validValue =&gt; {
+  /**
+   * @param {!(Array.&lt;*&gt;|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return value ? value.indexOf(validValue) &gt; -1 : false;
+  };
+  return validator;
+};
+
+/**
+ * For **Array**, **String** - `value` contains `validValue`
+ * @param {*} validValue
+ * @example
+ * notContain(&apos;test&apos;))(&apos;testA&apos;) =&gt; false
+ * notContain(&apos;test&apos;))(&apos;B test&apos;) =&gt; false
+ * notContain(&apos;test&apos;)([1, &apos;test&apos;])) =&gt; false
+ * notContain(&apos;test&apos;))(&apos;asd&apos;) =&gt; true
+ */
+export const notContain = validValue =&gt; {
+  /**
+   * @param {!(Array.&lt;*&gt;|String)} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return value ? value.indexOf(validValue) === -1 : false;
+  };
+  return validator;
+};
+/**
+ * For **String** - `value` is equal to `validValue`
+ * @param {String} validValue
+ * @example
+ * like(&apos;test&apos;)(&apos;test&apos;) =&gt; true
+ * like(&apos;test&apos;)(&apos;Test&apos;) =&gt; false
+ * like(&apos;test&apos;)(&apos;asdasd&apos;) =&gt; false
+ */
+export const like = validValue =&gt; {
+  /**
+   * @param {String} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    if (!value &amp;&amp; validValue) return false;
+    if (value &amp;&amp; !validValue) return false;
+    if (!value &amp;&amp; !validValue) return true;
+    return value ? value.toString() === validValue.toString() : false;
+  };
+  return validator;
+};
+
+/**
+ * For **String** - `value` is not equal to `validValue`
+ * @param {String} validValue
+ * @example
+ * notLike(&apos;test&apos;)(&apos;asd&apos;) =&gt; true
+ * notLike(&apos;test&apos;)(&apos;Test&apos;) =&gt; true
+ * notLike(&apos;test&apos;)(&apos;test&apos;) =&gt; false
+ */
+export const notLike = validValue =&gt; {
+  /**
+   * @param {String} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    if (!value &amp;&amp; validValue) return false;
+    if (value &amp;&amp; !validValue) return false;
+    if (!value &amp;&amp; !validValue) return true;
+    return value ? value.toString() !== validValue.toString() : false;
+  };
+  return validator;
+};
+
+/**
+ * For **Number** - `value` is equal to `validValue`
+ * @param {!Number} validValue
+ * @example
+ * equal(2)(2) =&gt; true
+ * equal(2)(22) =&gt; false
+ * equal(&apos;test&apos;)(&apos;test&apos;) =&gt; false
+ */
+export const equal = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return Number(validValue) === Number(value);
+  };
+  return validator;
+};
+/**
+ * For **Number** - `value` is not equal to `validValue`
+ * @param {!Number} validValue
+ * @example
+ * notEqual(1)(2) =&gt; true
+ * notEqual(1)(1) =&gt; false
+ * notEqual(&apos;test&apos;)(&apos;test&apos;) =&gt; true
+ * notEqual(&apos;test&apos;)(&apos;asdd&apos;) =&gt; true
+ */
+export const notEqual = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return Number(value) !== Number(validValue);
+  };
+  return validator;
+};
+/**
+ * For **Number** - `value` is in range of `validValue`
+ * @param {!Array.&lt;Number&gt;} validValue - as range array
+ * @example
+ * between([1, 4])(1) =&gt; true
+ * between([1, 4])(4) =&gt; true
+ * between([1, 4])(6) =&gt; false
+ */
+export const between = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; Number(validValue[0]) &lt;= Number(value) &amp;&amp; Number(validValue[1]) &gt;= Number(value);
+  return validator;
+};
+
+/**
+ * For **Number** - `value` is not in range of `validValue`
+ * @param {!Array.&lt;Number&gt;} validValue - as range array
+ * @example
+ * notBetween([1, 4])(1) =&gt; false
+ * notBetween([1, 4])(2) =&gt; false
+ * notBetween([1, 4])(4) =&gt; false
+ * notBetween([1, 4])(6) =&gt; true
+ */
+export const notBetween = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; Number(validValue[0]) &gt; Number(value) || Number(validValue[1]) &lt; Number(value);
+  return validator;
+};
+/**
+ * For **Number, String** - `value` is in `validValue` array
+ * @param {!Array.&lt;*&gt;} validValue
+ * @example
+ * inValues([1, 2, 3])(1) =&gt; true
+ * inValues([1, 2, 3])(2) =&gt; true
+ * inValues([1, 2, 3])(3) =&gt; true
+ * inValues([1, 2, 3])(4) =&gt; false
+ */
+export const inValues = validValue =&gt; {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    if (!value) return false;
+    const valuesIn = validValue.map(v =&gt; v.toString());
+    return valuesIn.indexOf(value.toString()) &gt; -1;
+  };
+  return validator;
+};
+/**
+ * For **Number, String** - `value` is not in `validValue` array
+ * @param {!Array.&lt;*&gt;} validValue
+ * @example
+ * notInValues([1, 2, 3])(4) =&gt; true
+ * notInValues([1, 2, 3])(3) =&gt; false
+ * notInValues([1, 2, 3])(2) =&gt; false
+ * notInValues([1, 2, 3])(1) =&gt; false
+ */
+export const notInValues = validValue =&gt; {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    if (!value) return false;
+    const valuesNotIn = validValue.map(v =&gt; v.toString());
+    return valuesNotIn.indexOf(value.toString()) === -1;
+  };
+  return validator;
+};
+/**
+ * For **Number** - `value` is greater than `validValue`
+ * @param {!Number} validValue
+ * @example
+ * greaterThan(2)(12) =&gt; true
+ * greaterThan(2)(2) =&gt; false
+ * greaterThan(2)(1) =&gt; false
+ */
+export const greaterThan = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return Number(value) &gt; Number(validValue);
+  };
+  return validator;
+};
+/**
+ * For **Number** - `value` is greater than or equal to `validValue`
+ * @param {!Number} validValue
+ * @example
+ * greaterThanOrEqual(2)(2) =&gt; true
+ * greaterThanOrEqual(2)(12) =&gt; true
+ * greaterThanOrEqual(2)(1) =&gt; false
+ */
+export const greaterThanOrEqual = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return Number(value) &gt;= Number(validValue);
+  };
+  return validator;
+};
+/**
+ * For **Number** - `value` is less than `validValue`
+ * @param {!Number} validValue
+ * @example
+ * lessThan(2)(1) =&gt; true
+ * lessThan(2)(0) =&gt; true
+ * lessThan(2)(2) =&gt; false
+ */
+export const lessThan = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return Number(value) &lt; Number(validValue);
+  };
+  return validator;
+};
+/**
+ * For **Number** - `value` is less than or equal `validValue`
+ * @param {!Number} validValue
+ * @example
+ * lessThanOrEqual(2)(2) =&gt; true
+ * lessThanOrEqual(2)(1) =&gt; true
+ * lessThanOrEqual(2)(22) =&gt; false
+ */
+export const lessThanOrEqual = validValue =&gt; {
+  /**
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */ const validator = value =&gt; {
+    return Number(value) &lt;= Number(validValue);
+  };
+  return validator;
+};
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

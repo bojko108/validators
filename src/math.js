@@ -42,7 +42,7 @@ export const metersToDegrees = (meters, latitude = 0) => {
  * Convert distance from decimal degrees to meters
  * @public
  * @param {!Number} degrees - distance in decimal degrees
- * @param {Number} [latitude=0] - current latitude, default is 0 - the equator
+ * @param {Number} [latitude=0] - latitude of the reference parallel, default is 0 - the equator
  * @return {Number}
  */
 export const degreesToMeters = (degrees, latitude = 0) => {

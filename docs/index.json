@@ -1,0 +1,1612 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/gisValidators.js",
+    "content": "import { lessThanOrEqual } from './validators';\r\nimport { getDistance, degreesToMeters } from './math';\r\n\r\n/**\r\n * For **Coordinates** - distance between `p1` and `p2` is less than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325758.0054, 450367.7143]) => true\r\n * getValidator({ maxDistance: 100 })([42.678748, 23.338703], [42.678803, 23.338928], true) => true\r\n * getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450516.2508]) => false\r\n */\r\nexport const maxDistance = validValue => {\r\n  const validator = lessThanOrEqual(validValue);\r\n  /**\r\n   * @param {!Array.<Number>} p1 - coordinates of first point in format `[lon, lat]`, `[e, n]`, `[x, y]`\r\n   * @param {!Array.<Number>} p2 - coordinates of second point in format `[lon, lat]`, `[e, n]`, `[x, y]`\r\n   * @param {Boolean} [useDegrees] - if `true` the distance will be calculated in decimal degrees and then\r\n   * converted to meters, using the average latitude as a reference parallel\r\n   */\r\n  const validatorFunction = (p1, p2, useDegrees = false) => {\r\n    let distance = getDistance(p1, p2);\r\n    if (useDegrees) {\r\n      const midLatitude = (p1[1] + p2[1]) / 2;\r\n      distance = degreesToMeters(distance, midLatitude);\r\n    }\r\n    return validator(distance);\r\n  };\r\n  return validatorFunction;\r\n};\r\n",
+    "static": true,
+    "longname": "E:/webprojects/validators/src/gisValidators.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "maxDistance",
+    "memberof": "src/gisValidators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/gisValidators.js~maxDistance",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/gisValidators.js",
+    "importStyle": "{maxDistance}",
+    "description": "For **Coordinates** - distance between `p1` and `p2` is less than or equal to `validValue`",
+    "examples": [
+      "getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325758.0054, 450367.7143]) => true\ngetValidator({ maxDistance: 100 })([42.678748, 23.338703], [42.678803, 23.338928], true) => true\ngetValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450516.2508]) => false"
+    ],
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "import * as validators from './validators';\r\n\r\n/**\r\n * Get a validator function\r\n * @param {Object} validator - defines validator name and config. An object with a single property, which must be equal to\r\n * one of the validator functions. The value of this property can be any type.\r\n * @throws {Error} when `validator` parameter is not defined\r\n * @throws {Error} when there is no validation function defined\r\n * @return {function(value: *): Boolean} validator function\r\n * @example\r\n * getValidator({ required: null }) => `required` validator\r\n * getValidator({ precision: 4 }) => `precision` validator with accuracy 4 meters\r\n * getValidator({ between: [1, 4] }) => `between` validator with valid range [1, 4]\r\n * getValidator({ maxDistance: 100 }) => `maxDistance` validator with maxumum distance 100 meters\r\n */\r\nexport const getValidator = validator => {\r\n  if (!validator) {\r\n    throw \"'validator' must be an object with a single property, which must be equal to one of the validator functions. For example: { required: null }, { precision: 4 }, { between: [1, 4] }, { maxDistance: 100 }\";\r\n  }\r\n  const name = Object.keys(validator)[0];\r\n  const config = validator[name];\r\n  const func = validators[name];\r\n  if (!func) {\r\n    throw `Validator '${name}' could not be found! Try to define it with: addValidator(${name}, <callback>)`;\r\n  }\r\n  return func(config);\r\n};\r\n\r\n/**\r\n *\r\n * @param {!String} name - name of the custom validator\r\n * @param {!function(value: *): Boolean} callback - function that receives a `value` and must return a boolean.\r\n * @return {function(value: *): Boolean} validator function\r\n */\r\nexport const addValidator = (name, callback) => {\r\n  validators[name] = callback;\r\n  return validators[name];\r\n};\r\n",
+    "static": true,
+    "longname": "E:/webprojects/validators/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "getValidator",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~getValidator",
+    "access": "public",
+    "export": true,
+    "importPath": "validators",
+    "importStyle": "{getValidator}",
+    "description": "Get a validator function",
+    "examples": [
+      "getValidator({ required: null }) => `required` validator\ngetValidator({ precision: 4 }) => `precision` validator with accuracy 4 meters\ngetValidator({ between: [1, 4] }) => `between` validator with valid range [1, 4]\ngetValidator({ maxDistance: 100 }) => `maxDistance` validator with maxumum distance 100 meters"
+    ],
+    "lineNumber": 16,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validator",
+        "description": "defines validator name and config. An object with a single property, which must be equal to\none of the validator functions. The value of this property can be any type."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "function(value: *): Boolean"
+      ],
+      "spread": false,
+      "description": "validator function"
+    },
+    "throws": [
+      {
+        "types": [
+          "Error"
+        ],
+        "description": "when `validator` parameter is not defined"
+      },
+      {
+        "types": [
+          "Error"
+        ],
+        "description": "when there is no validation function defined"
+      }
+    ]
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "addValidator",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~addValidator",
+    "access": "public",
+    "export": true,
+    "importPath": "validators",
+    "importStyle": "{addValidator}",
+    "description": "",
+    "lineNumber": 35,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "name of the custom validator"
+      },
+      {
+        "nullable": false,
+        "types": [
+          "function(value: *): Boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "function that receives a `value` and must return a boolean."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "function(value: *): Boolean"
+      ],
+      "spread": false,
+      "description": "validator function"
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "src/math.js",
+    "content": "/**\r\n * Convert a value from radians to degrees.\r\n * @param {!Number} radians - value in radians\r\n * @return {Number}\r\n */\r\nexport const toDegrees = radians => {\r\n  return radians * (180 / Math.PI);\r\n};\r\n/**\r\n * Conver a value from degrees to radians.\r\n * @param {!Number} degrees - value in decimal degrees\r\n * @return {Number}\r\n */\r\nexport const toRadians = degrees => {\r\n  return degrees * (Math.PI / 180);\r\n};\r\n\r\n/**\r\n * Calculates the Eucledian distance between two points.\r\n * @param {!Array.<Number>} p1\r\n * @param {!Array.<Number>} p2\r\n * @return {Number}\r\n */\r\nexport const getDistance = (p1, p2) => {\r\n  const dx = p2[0] - p1[0],\r\n    dy = p2[1] - p1[1];\r\n  return Math.sqrt(dx * dx + dy * dy);\r\n};\r\n\r\n/**\r\n * Convert distance from meters to decimal degrees\r\n * @public\r\n * @param {!Number} meters - distance in meters\r\n * @param {Number} [latitude=0] - current latitude, default is 0 - the equator\r\n * @return {Number}\r\n */\r\nexport const metersToDegrees = (meters, latitude = 0) => {\r\n  return meters / (111.32 * 1000 * Math.cos(toRadians(latitude)));\r\n};\r\n\r\n/**\r\n * Convert distance from decimal degrees to meters\r\n * @public\r\n * @param {!Number} degrees - distance in decimal degrees\r\n * @param {Number} [latitude=0] - latitude of the reference parallel, default is 0 - the equator\r\n * @return {Number}\r\n */\r\nexport const degreesToMeters = (degrees, latitude = 0) => {\r\n  return degrees * (111.32 * 1000 * Math.cos(toRadians(latitude)));\r\n};\r\n",
+    "static": true,
+    "longname": "E:/webprojects/validators/src/math.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "toDegrees",
+    "memberof": "src/math.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/math.js~toDegrees",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/math.js",
+    "importStyle": "{toDegrees}",
+    "description": "Convert a value from radians to degrees.",
+    "lineNumber": 6,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "radians",
+        "description": "value in radians"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "function",
+    "name": "toRadians",
+    "memberof": "src/math.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/math.js~toRadians",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/math.js",
+    "importStyle": "{toRadians}",
+    "description": "Conver a value from degrees to radians.",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "degrees",
+        "description": "value in decimal degrees"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "function",
+    "name": "getDistance",
+    "memberof": "src/math.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/math.js~getDistance",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/math.js",
+    "importStyle": "{getDistance}",
+    "description": "Calculates the Eucledian distance between two points.",
+    "lineNumber": 24,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<Number>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "p1",
+        "description": ""
+      },
+      {
+        "nullable": false,
+        "types": [
+          "Array.<Number>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "p2",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "metersToDegrees",
+    "memberof": "src/math.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/math.js~metersToDegrees",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/math.js",
+    "importStyle": "{metersToDegrees}",
+    "description": "Convert distance from meters to decimal degrees",
+    "lineNumber": 37,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "meters",
+        "description": "distance in meters"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "0",
+        "defaultRaw": 0,
+        "name": "latitude",
+        "description": "current latitude, default is 0 - the equator"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "degreesToMeters",
+    "memberof": "src/math.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/math.js~degreesToMeters",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/math.js",
+    "importStyle": "{degreesToMeters}",
+    "description": "Convert distance from decimal degrees to meters",
+    "lineNumber": 48,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "degrees",
+        "description": "distance in decimal degrees"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": true,
+        "defaultValue": "0",
+        "defaultRaw": 0,
+        "name": "latitude",
+        "description": "latitude of the reference parallel, default is 0 - the equator"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "file",
+    "name": "src/validators.js",
+    "content": "export { maxDistance } from './gisValidators';\r\n\r\n/**\r\n * Checks whether the `value` is defined or not\r\n * @example\r\n * required()(4) => true\r\n * required()(null) => false\r\n * required()('') => false\r\n */\r\nexport const required = () => {\r\n  /**\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => !!value;\r\n  return validator;\r\n};\r\n/**\r\n * For **Location** object - `value` is more precise than `precision`\r\n * @param {Number} precision - accuracy in meters\r\n * @example\r\n * precision(10)({ accuracy: 4 }) => true\r\n * precision(10)({ accuracy: 12 }) => false\r\n * precision(10)({ coords: { accuracy: 4 }}) => true\r\n * precision(10)({ coords: { accuracy: 12 }}) => false\r\n */\r\nexport const precision = precision => {\r\n  /**\r\n   * @param {!Object} value - location object, returned by the GPS\r\n   * @property {Number} [value.accuracy]\r\n   * @property {Object} [value.coords]\r\n   * @property {!Number} value.coords.accuracy\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    const coords = value.coords || value;\r\n    return coords.accuracy <= precision;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - `value`'s length is greater than or equal to `min`\r\n * @param {!Number} min - minimum length value\r\n * @example\r\n * min(3)('as') => false\r\n * min(3)('asd') => true\r\n * min(3)('asdf') => true\r\n */\r\nexport const min = min => {\r\n  /**\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => value.length >= min;\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - `value`'s length is greater than or equal to `max`\r\n * @param {!Number} max - maximum length value\r\n * @example\r\n * max(3)('as') => true\r\n * max(3)('asd') => true\r\n * max(3)('asdf') => false\r\n */\r\nexport const max = max => {\r\n  /**\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => value.length <= max;\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - `value` contains `validValue`\r\n * @param {*} validValue\r\n * @example\r\n * contain('test')('testA') => true\r\n * contain('test')('B test') => true\r\n * contain('test')([1, 'test'])) => true\r\n * contain('test')('asd') => false\r\n */\r\nexport const contain = validValue => {\r\n  /**\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return value ? value.indexOf(validValue) > -1 : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Array**, **String** - `value` contains `validValue`\r\n * @param {*} validValue\r\n * @example\r\n * notContain('test'))('testA') => false\r\n * notContain('test'))('B test') => false\r\n * notContain('test')([1, 'test'])) => false\r\n * notContain('test'))('asd') => true\r\n */\r\nexport const notContain = validValue => {\r\n  /**\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return value ? value.indexOf(validValue) === -1 : false;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **String** - `value` is equal to `validValue`\r\n * @param {String} validValue\r\n * @example\r\n * like('test')('test') => true\r\n * like('test')('Test') => false\r\n * like('test')('asdasd') => false\r\n */\r\nexport const like = validValue => {\r\n  /**\r\n   * @param {String} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value && validValue) return false;\r\n    if (value && !validValue) return false;\r\n    if (!value && !validValue) return true;\r\n    return value ? value.toString() === validValue.toString() : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **String** - `value` is not equal to `validValue`\r\n * @param {String} validValue\r\n * @example\r\n * notLike('test')('asd') => true\r\n * notLike('test')('Test') => true\r\n * notLike('test')('test') => false\r\n */\r\nexport const notLike = validValue => {\r\n  /**\r\n   * @param {String} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value && validValue) return false;\r\n    if (value && !validValue) return false;\r\n    if (!value && !validValue) return true;\r\n    return value ? value.toString() !== validValue.toString() : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Number** - `value` is equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * equal(2)(2) => true\r\n * equal(2)(22) => false\r\n * equal('test')('test') => false\r\n */\r\nexport const equal = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(validValue) === Number(value);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - `value` is not equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * notEqual(1)(2) => true\r\n * notEqual(1)(1) => false\r\n * notEqual('test')('test') => true\r\n * notEqual('test')('asdd') => true\r\n */\r\nexport const notEqual = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) !== Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - `value` is in range of `validValue`\r\n * @param {!Array.<Number>} validValue - as range array\r\n * @example\r\n * between([1, 4])(1) => true\r\n * between([1, 4])(4) => true\r\n * between([1, 4])(6) => false\r\n */\r\nexport const between = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => Number(validValue[0]) <= Number(value) && Number(validValue[1]) >= Number(value);\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Number** - `value` is not in range of `validValue`\r\n * @param {!Array.<Number>} validValue - as range array\r\n * @example\r\n * notBetween([1, 4])(1) => false\r\n * notBetween([1, 4])(2) => false\r\n * notBetween([1, 4])(4) => false\r\n * notBetween([1, 4])(6) => true\r\n */\r\nexport const notBetween = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => Number(validValue[0]) > Number(value) || Number(validValue[1]) < Number(value);\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - `value` is in `validValue` array\r\n * @param {!Array.<*>} validValue\r\n * @example\r\n * inValues([1, 2, 3])(1) => true\r\n * inValues([1, 2, 3])(2) => true\r\n * inValues([1, 2, 3])(3) => true\r\n * inValues([1, 2, 3])(4) => false\r\n */\r\nexport const inValues = validValue => {\r\n  /**\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    const valuesIn = validValue.map(v => v.toString());\r\n    return valuesIn.indexOf(value.toString()) > -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - `value` is not in `validValue` array\r\n * @param {!Array.<*>} validValue\r\n * @example\r\n * notInValues([1, 2, 3])(4) => true\r\n * notInValues([1, 2, 3])(3) => false\r\n * notInValues([1, 2, 3])(2) => false\r\n * notInValues([1, 2, 3])(1) => false\r\n */\r\nexport const notInValues = validValue => {\r\n  /**\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    const valuesNotIn = validValue.map(v => v.toString());\r\n    return valuesNotIn.indexOf(value.toString()) === -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - `value` is greater than `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * greaterThan(2)(12) => true\r\n * greaterThan(2)(2) => false\r\n * greaterThan(2)(1) => false\r\n */\r\nexport const greaterThan = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) > Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - `value` is greater than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * greaterThanOrEqual(2)(2) => true\r\n * greaterThanOrEqual(2)(12) => true\r\n * greaterThanOrEqual(2)(1) => false\r\n */\r\nexport const greaterThanOrEqual = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) >= Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - `value` is less than `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * lessThan(2)(1) => true\r\n * lessThan(2)(0) => true\r\n * lessThan(2)(2) => false\r\n */\r\nexport const lessThan = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) < Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - `value` is less than or equal `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * lessThanOrEqual(2)(2) => true\r\n * lessThanOrEqual(2)(1) => true\r\n * lessThanOrEqual(2)(22) => false\r\n */\r\nexport const lessThanOrEqual = validValue => {\r\n  /**\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */ const validator = value => {\r\n    return Number(value) <= Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n",
+    "static": true,
+    "longname": "E:/webprojects/validators/src/validators.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 60,
+    "kind": "function",
+    "name": "required",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~required",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{required}",
+    "description": "Checks whether the `value` is defined or not",
+    "examples": [
+      "required()(4) => true\nrequired()(null) => false\nrequired()('') => false"
+    ],
+    "lineNumber": 10,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "name": "precision",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~precision",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{precision}",
+    "description": "For **Location** object - `value` is more precise than `precision`",
+    "examples": [
+      "precision(10)({ accuracy: 4 }) => true\nprecision(10)({ accuracy: 12 }) => false\nprecision(10)({ coords: { accuracy: 4 }}) => true\nprecision(10)({ coords: { accuracy: 12 }}) => false"
+    ],
+    "lineNumber": 27,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "precision",
+        "description": "accuracy in meters"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "function",
+    "name": "min",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~min",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{min}",
+    "description": "For **Array**, **String** - `value`'s length is greater than or equal to `min`",
+    "examples": [
+      "min(3)('as') => false\nmin(3)('asd') => true\nmin(3)('asdf') => true"
+    ],
+    "lineNumber": 49,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "min",
+        "description": "minimum length value"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "name": "max",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~max",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{max}",
+    "description": "For **Array**, **String** - `value`'s length is greater than or equal to `max`",
+    "examples": [
+      "max(3)('as') => true\nmax(3)('asd') => true\nmax(3)('asdf') => false"
+    ],
+    "lineNumber": 65,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "max",
+        "description": "maximum length value"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "contain",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~contain",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{contain}",
+    "description": "For **Array**, **String** - `value` contains `validValue`",
+    "examples": [
+      "contain('test')('testA') => true\ncontain('test')('B test') => true\ncontain('test')([1, 'test'])) => true\ncontain('test')('asd') => false"
+    ],
+    "lineNumber": 82,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "function",
+    "name": "notContain",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~notContain",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{notContain}",
+    "description": "For **Array**, **String** - `value` contains `validValue`",
+    "examples": [
+      "notContain('test'))('testA') => false\nnotContain('test'))('B test') => false\nnotContain('test')([1, 'test'])) => false\nnotContain('test'))('asd') => true"
+    ],
+    "lineNumber": 102,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "like",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~like",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{like}",
+    "description": "For **String** - `value` is equal to `validValue`",
+    "examples": [
+      "like('test')('test') => true\nlike('test')('Test') => false\nlike('test')('asdasd') => false"
+    ],
+    "lineNumber": 120,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "function",
+    "name": "notLike",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~notLike",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{notLike}",
+    "description": "For **String** - `value` is not equal to `validValue`",
+    "examples": [
+      "notLike('test')('asd') => true\nnotLike('test')('Test') => true\nnotLike('test')('test') => false"
+    ],
+    "lineNumber": 142,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "function",
+    "name": "equal",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~equal",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{equal}",
+    "description": "For **Number** - `value` is equal to `validValue`",
+    "examples": [
+      "equal(2)(2) => true\nequal(2)(22) => false\nequal('test')('test') => false"
+    ],
+    "lineNumber": 164,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "function",
+    "name": "notEqual",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~notEqual",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{notEqual}",
+    "description": "For **Number** - `value` is not equal to `validValue`",
+    "examples": [
+      "notEqual(1)(2) => true\nnotEqual(1)(1) => false\nnotEqual('test')('test') => true\nnotEqual('test')('asdd') => true"
+    ],
+    "lineNumber": 183,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "function",
+    "name": "between",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~between",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{between}",
+    "description": "For **Number** - `value` is in range of `validValue`",
+    "examples": [
+      "between([1, 4])(1) => true\nbetween([1, 4])(4) => true\nbetween([1, 4])(6) => false"
+    ],
+    "lineNumber": 201,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<Number>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": "as range array"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "function",
+    "name": "notBetween",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~notBetween",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{notBetween}",
+    "description": "For **Number** - `value` is not in range of `validValue`",
+    "examples": [
+      "notBetween([1, 4])(1) => false\nnotBetween([1, 4])(2) => false\nnotBetween([1, 4])(4) => false\nnotBetween([1, 4])(6) => true"
+    ],
+    "lineNumber": 219,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<Number>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": "as range array"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "function",
+    "name": "inValues",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~inValues",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{inValues}",
+    "description": "For **Number, String** - `value` is in `validValue` array",
+    "examples": [
+      "inValues([1, 2, 3])(1) => true\ninValues([1, 2, 3])(2) => true\ninValues([1, 2, 3])(3) => true\ninValues([1, 2, 3])(4) => false"
+    ],
+    "lineNumber": 236,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<*>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "function",
+    "name": "notInValues",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~notInValues",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{notInValues}",
+    "description": "For **Number, String** - `value` is not in `validValue` array",
+    "examples": [
+      "notInValues([1, 2, 3])(4) => true\nnotInValues([1, 2, 3])(3) => false\nnotInValues([1, 2, 3])(2) => false\nnotInValues([1, 2, 3])(1) => false"
+    ],
+    "lineNumber": 257,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<*>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "function",
+    "name": "greaterThan",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~greaterThan",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{greaterThan}",
+    "description": "For **Number** - `value` is greater than `validValue`",
+    "examples": [
+      "greaterThan(2)(12) => true\ngreaterThan(2)(2) => false\ngreaterThan(2)(1) => false"
+    ],
+    "lineNumber": 277,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "function",
+    "name": "greaterThanOrEqual",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~greaterThanOrEqual",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{greaterThanOrEqual}",
+    "description": "For **Number** - `value` is greater than or equal to `validValue`",
+    "examples": [
+      "greaterThanOrEqual(2)(2) => true\ngreaterThanOrEqual(2)(12) => true\ngreaterThanOrEqual(2)(1) => false"
+    ],
+    "lineNumber": 295,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "function",
+    "name": "lessThan",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~lessThan",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{lessThan}",
+    "description": "For **Number** - `value` is less than `validValue`",
+    "examples": [
+      "lessThan(2)(1) => true\nlessThan(2)(0) => true\nlessThan(2)(2) => false"
+    ],
+    "lineNumber": 313,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "function",
+    "name": "lessThanOrEqual",
+    "memberof": "src/validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators.js~lessThanOrEqual",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/validators.js",
+    "importStyle": "{lessThanOrEqual}",
+    "description": "For **Number** - `value` is less than or equal `validValue`",
+    "examples": [
+      "lessThanOrEqual(2)(2) => true\nlessThanOrEqual(2)(1) => true\nlessThanOrEqual(2)(22) => false"
+    ],
+    "lineNumber": 331,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "validValue",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "kind": "index",
+    "content": "# Validators\r\n\r\nSet of custom validation functions.\r\n\r\n## How to install\r\n\r\n```\r\nyarn add bojko108/validators\r\n```\r\n\r\n## How to use\r\n\r\n### Get a validator\r\n\r\n```js\r\nimport { getValidator } from 'validators';\r\n\r\nconst validator1 = getValidator({ precision: 10 });\r\nvalidator1({ coords: { accuracy: 4 } }); // => true\r\n\r\nconst validator2 = getValidator({ between: [1, 4] });\r\nvalidator2(1); // => true\r\n```\r\n\r\n### Add a custom validator\r\n\r\n```js\r\nimport { addValidator } from 'validators';\r\n\r\nconst validator = addValidator('test', value => {\r\n  // test the value and return true or false\r\n});\r\nvalidator(value);\r\n```\r\n\r\n## Tests\r\n\r\nCheck [tests](https://github.com/bojko108/validators/tree/master/tests) for more examples.\r\n\r\n## License\r\n\r\ntransformations is [MIT](https://github.com/bojko108/validators/tree/master/LICENSE) License @ bojko108\r\n",
+    "longname": "E:\\webprojects\\validators\\README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\r\n  \"name\": \"validators\",\r\n  \"version\": \"0.0.2\",\r\n  \"description\": \"Set of custom validation functions.\",\r\n  \"author\": \"bojko108 <bojko108@gmail.com>\",\r\n  \"license\": \"MIT\",\r\n  \"main\": \"./src/index.js\",\r\n  \"repository\": {\r\n    \"type\": \"git\",\r\n    \"url\": \"https://github.com/bojko108/validators.git\"\r\n  },\r\n  \"scripts\": {\r\n    \"patch\": \"npm version patch --no-git-tag-version\",\r\n    \"minor\": \"npm version minor --no-git-tag-version\",\r\n    \"major\": \"npm version major --no-git-tag-version\",\r\n    \"test\": \"mocha --watch --require babel-core/register ./tests/**/*.test.js\",\r\n    \"docs\": \"esdoc -c ./.esdoc.json\"\r\n  },\r\n  \"dependencies\": {},\r\n  \"devDependencies\": {\r\n    \"babel\": \"^6.23.0\",\r\n    \"babel-core\": \"^6.26.3\",\r\n    \"babel-preset-es2015\": \"^6.24.1\",\r\n    \"chai\": \"^4.2.0\",\r\n    \"esdoc\": \"^1.1.0\",\r\n    \"esdoc-lint-plugin\": \"^1.0.2\",\r\n    \"esdoc-standard-plugin\": \"^1.0.0\",\r\n    \"mocha\": \"^5.2.0\"\r\n  }\r\n}\r\n",
+    "longname": "E:\\webprojects\\validators\\package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

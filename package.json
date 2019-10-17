@@ -1,6 +1,6 @@
 {
   "name": "validators",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Set of custom validation functions.",
   "author": "bojko108 <bojko108@gmail.com>",
   "license": "MIT",
@@ -10,10 +10,11 @@
     "url": "https://github.com/bojko108/validators.git"
   },
   "scripts": {
-    "patch": "npm version patch --no-git-tag-version && npm run build",
-    "minor": "npm version minor --no-git-tag-version && npm run build",
-    "major": "npm version major --no-git-tag-version && npm run build",
-    "test": "mocha --watch --require babel-core/register ./tests/**/*.test.js"
+    "patch": "npm version patch --no-git-tag-version",
+    "minor": "npm version minor --no-git-tag-version",
+    "major": "npm version major --no-git-tag-version",
+    "test": "mocha --watch --require babel-core/register ./tests/**/*.test.js",
+    "docs": "esdoc -c ./.esdoc.json"
   },
   "dependencies": {},
   "devDependencies": {
@@ -21,6 +22,9 @@
     "babel-core": "^6.26.3",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
+    "esdoc": "^1.1.0",
+    "esdoc-lint-plugin": "^1.0.2",
+    "esdoc-standard-plugin": "^1.0.0",
     "mocha": "^5.2.0"
   }
 }
