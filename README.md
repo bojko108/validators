@@ -1,6 +1,6 @@
 # Validators
 
-Set of custom validation functions.
+Set of custom validation functions. You can read the documentation here: [https://bojko108.github.io/validators/](https://bojko108.github.io/validators/)
 
 ## How to install
 
