@@ -2,6 +2,32 @@ import { lessThanOrEqual } from './validators';
 import { getDistance, degreesToMeters } from './math';
 
 /**
+ * For **Location** object - checks whether a value is more precise than `validValue`
+ * @param {Number} validValue - accuracy in meters
+ * @example
+ * precision(10)({ accuracy: 4 }) => true
+ * precision(10)({ accuracy: 12 }) => false
+ * precision(10)({ coords: { accuracy: 4 }}) => true
+ * precision(10)({ coords: { accuracy: 12 }}) => false
+ */
+export const precision = validValue => {
+  /**
+   * Returns `true` if `value` is more precise than `validValue`
+   * @param {!Object} value - location object, returned by the GPS
+   * ```
+   * [value.accuracy] - accuracy in meters
+   * [value.coords] - coords object returned by the GPS
+   * [value.coords.accuracy] - accuracy in meters
+   * ```
+   * @return {Boolean}
+   */
+  const validator = value => {
+    const coords = value.coords || value;
+    return coords.accuracy <= validValue;
+  };
+  return validator;
+};
+/**
  * For **Coordinates** - distance between `p1` and `p2` is less than or equal to `validValue`
  * @param {!Number} validValue
  * @example

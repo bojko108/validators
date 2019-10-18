@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/index.js | validators</title>
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Typedef | validators</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -68,91 +68,309 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import * as validators from &apos;./validators&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">Typedef</h1>
+<div data-ice="summaries"><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Static Public Summary</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorFunction">ValidatorFunction</a></span></span><span class="code" data-ice="signature">(value: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="details"><h2 data-ice="title">Static Public </h2>
 
-/**
- * @typedef Validator
- * @property {!String} name - name of the validator
- * @property {*} validValue - valid value for this validator
- * @property {function(value:*):Boolean} validate - validator function which takes values and validates them
- * @property {String} [errorMessage]
- */
-/**
- * @typedef ValidatorFunction - function stored in `getValidator().validate`
- * @param {*} value - value that needs to be validated
- * @return {Boolean}
- */
-/**
- * @typedef ValidatorOptions
- * @property {!String} name - name of the validator - should be unique
- * @property {!*} validValue - valid value for this validator
- * @property {String} [errorMessage]
- */
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-Validator">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">Validator</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
 
-/**
- * Get a validator function
- * @param {!ValidatorOptions} options - defines validator options
- * @return {Validator} validator
- * @throws {Error} when `options` parameter is not defined
- * @throws {Error} when `options.name` parameter is not defined
- * @throws {Error} when there is no validation function defined
- * @example
- * getValidator({ name: &apos;required&apos; }) =&gt; `required` validator
- * getValidator({ name: &apos;precision&apos;, validValue: 4 }) =&gt; `precision` validator with accuracy 4 meters
- * getValidator({ name: &apos;between&apos;, validValue: [1, 4] }) =&gt; `between` validator with valid range [1, 4]
- * getValidator({ name: &apos;maxDistance&apos; validValue: 100 }) =&gt; `maxDistance` validator with maxumum distance 100 meters
- */
-export const getValidator = options =&gt; {
-  if (!options) {
-    throw &apos;&quot;options&quot; must be an object. For example: { name: &quot;required&quot; }, { name: &quot;precision&quot;, validValue: 4 }, { name: &quot;between&quot;, validValue: [1, 4] }, { name: &quot;maxDistance&quot;, validValue: 100 }&apos;;
-  }
-  const { name, validValue, errorMessage } = options;
-  let validate = options.validate;
-  if (!name) {
-    const validNames = Object.keys(validators).join(&apos;&quot;,&quot;&apos;);
-    throw `&quot;options.name&quot; is required and should be one of: ${validNames}`;
-  }
-  if (!validate) {
-    const func = validators[name];
-    if (!func) {
-      throw `Validator &quot;${name}&quot; could not be found! Try to define it with: addValidator({ name: &quot;${name}&quot;, validValue: &quot;someValidValue&quot;, validate: (value) =&gt; { return value === &quot;someValidValue&quot; }})`;
-    }
-    validate = func(validValue);
-  }
-  return { name, validValue, errorMessage, validate };
-};
+  
+  
+  
+  
 
-/**
- * Add a new validator.
- * @param {!Validator} options - options for the custom validator
- * @return {Validator} validator
- * @throws {Error} when `options` parameter is not defined
- * @throws {Error} when `options.name` parameter is not defined
- * @throws {Error} when a validator already exists
- * @throws {Error} when `options.validate` is not a function
- * @example
- * addValidator({ name: &quot;exact&quot;, validValue: 1, validate: (value) =&gt; value === 1 }) =&gt; defines and returns a new validator with name `exact`
- */
-export const addValidator = options =&gt; {
-  if (!options) {
-    throw &apos;&quot;options&quot; must be an object. For example: { name: &quot;someName&quot;, validValue: &quot;someValidValue&quot;, validate: (value) =&gt; { return value === &quot;someValidValue&quot; }}&apos;;
-  }
-  const { name, validValue, errorMessage, validate } = options;
-  if (!name) {
-    throw &apos;&quot;options.name&quot; is required&apos;;
-  }
-  if (name in validators) {
-    throw `Validator &quot;${name}&quot; already exists! You can call it with: getValidator({ name: &quot;${name}&quot;, validValue: &quot;someValidValue&quot; })`;
-  }
-  if (!validate || !validators.isFunction(validate)) {
-    throw &apos;&quot;options.validate&quot; must be a function&apos;;
-  }
-  validators[name] = validate;
-  return { name, validValue, errorMessage, validate };
-};
-</code></pre>
+  
 
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">name</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
+      <td data-ice="description"><p>name of the validator</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">validValue</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>valid value for this validator</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">validate</td>
+      <td data-ice="type" class="code"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>validator function which takes values and validates them</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">errorMessage</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-ValidatorFunction">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">ValidatorFunction</span><span class="code" data-ice="signature">(value: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span>: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-typedef-ValidatorOptions">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">ValidatorOptions</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumberundefined">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">name</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
+      <td data-ice="description"><p>name of the validator - should be unique</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">validValue</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
+      <td data-ice="description"><p>valid value for this validator</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">errorMessage</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 </div>
 
 <footer class="footer">

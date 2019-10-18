@@ -30,6 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-maxDistance">maxDistance</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addValidator">addValidator</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidator">getValidator</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-degreesToMeters">degreesToMeters</a></span></span></li>
@@ -43,6 +44,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThan">greaterThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThanOrEqual">greaterThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-inValues">inValues</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isArray">isArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isBoolean">isBoolean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDefined">isDefined</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isFunction">isFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isInteger">isInteger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isString">isString</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThan">lessThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThanOrEqual">lessThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-like">like</a></span></span></li>
@@ -53,8 +61,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notEqual">notEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notInValues">notInValues</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notLike">notLike</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-required">required</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorFunction">ValidatorFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -78,13 +87,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-addValidator">addValidator</a></span></span><span class="code" data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, callback: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-addValidator">addValidator</a></span></span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span>): <span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Add a new validator.</p>
+</div>
       </div>
     </td>
     <td>
@@ -112,7 +122,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is in range of <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is in the range of <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -141,7 +151,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code> contains <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether a value contains <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -199,7 +209,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is equal to <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -251,7 +261,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getValidator">getValidator</a></span></span><span class="code" data-ice="signature">(validator: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-getValidator">getValidator</a></span></span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span>): <span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span>
         </p>
       </div>
       <div>
@@ -286,7 +296,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is greater than <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is greater than <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -315,7 +325,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is greater than or equal to <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is greater than or equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -344,7 +354,210 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number, String</strong> - <code>value</code> is in <code>validValue</code> array</p>
+        <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is in <code>validValue</code> array</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isArray">isArray</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is an <code>array</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isBoolean">isBoolean</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is from type <code>boolean</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isDefined">isDefined</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Checks whether a value is defined or not</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isFunction">isFunction</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is <code>function</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isInteger">isInteger</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is an integer <code>number</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is from type <code>number</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-isString">isString</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is from type <code>string</code></p>
 </div>
       </div>
     </td>
@@ -373,7 +586,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is less than <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is less than <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -402,7 +615,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is less than or equal <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is less than or equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -431,7 +644,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>String</strong> - <code>value</code> is equal to <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>String</strong> - checks whether a value is equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -454,13 +667,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-max">max</a></span></span><span class="code" data-ice="signature">(max: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-max">max</a></span></span><span class="code" data-ice="signature">(validValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code>&apos;s length is greater than or equal to <code>max</code></p>
+        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether value&apos;s length is greater than or equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -541,13 +754,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-min">min</a></span></span><span class="code" data-ice="signature">(min: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-min">min</a></span></span><span class="code" data-ice="signature">(validValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code>&apos;s length is greater than or equal to <code>min</code></p>
+        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether value&apos;s length is greater than or equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -576,7 +789,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is not in range of <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is not in the range of <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -605,7 +818,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code> contains <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether a value deos not contain <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -634,7 +847,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is not equal to <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is not equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -663,7 +876,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Number, String</strong> - <code>value</code> is not in <code>validValue</code> array</p>
+        <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is not in <code>validValue</code> array</p>
 </div>
       </div>
     </td>
@@ -692,7 +905,7 @@
       <div>
         
         
-        <div data-ice="description"><p>For <strong>String</strong> - <code>value</code> is not equal to <code>validValue</code></p>
+        <div data-ice="description"><p>For <strong>String</strong> - checks whether a value is not equal to <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -715,42 +928,13 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span><span class="code" data-ice="signature">(precision: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span><span class="code" data-ice="signature">(validValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>For <strong>Location</strong> object - <code>value</code> is more precise than <code>precision</code></p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-required">required</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Checks whether the <code>value</code> is defined or not</p>
+        <div data-ice="description"><p>For <strong>Location</strong> object - checks whether a value is more precise than <code>validValue</code></p>
 </div>
       </div>
     </td>
@@ -830,18 +1014,19 @@
     
     
     
-    <span class="code" data-ice="name">addValidator</span><span class="code" data-ice="signature">(name: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span>, callback: <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></span>
+    <span class="code" data-ice="name">addValidator</span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span>): <span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber35">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber66">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber35">validators</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber66">validators</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Add a new validator.</p>
+</div>
 
   
 
@@ -854,17 +1039,10 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">name</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></span></td>
+      <td data-ice="name" class="code" data-depth="0">options</td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></td>
       <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
-      <td data-ice="description"><p>name of the custom validator</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">callback</td>
-      <td data-ice="type" class="code"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></td>
-      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
-      <td data-ice="description"><p>function that receives a <code>value</code> and must return a boolean.</p>
+      <td data-ice="description"><p>options for the custom validator</p>
 </td>
     </tr>
 </tbody>
@@ -877,8 +1055,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>validator function</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>validator</p>
 </td>
         </tr>
       </tbody>
@@ -891,11 +1069,45 @@
 
   
 
-  
+  <div data-ice="throwWrap">
+    <h4>Throw:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
+        <td data-ice="throwDesc"><p>when <code>options</code> parameter is not defined</p>
+</td>
+      </tr>
+<tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
+        <td data-ice="throwDesc"><p>when <code>options.name</code> parameter is not defined</p>
+</td>
+      </tr>
+<tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
+        <td data-ice="throwDesc"><p>when a validator already exists</p>
+</td>
+      </tr>
+<tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
+        <td data-ice="throwDesc"><p>when <code>options.validate</code> is not a function</p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
 
   
 
-  
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">addValidator({ name: &quot;exact&quot;, validValue: 1, validate: (value) =&gt; value === 1 }) =&gt; defines and returns a new validator with name `exact`</code></pre>
+    </div>
+</div>
 
   
 
@@ -914,14 +1126,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber201">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber198">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {between} from &apos;<span><a href="file/src/validators.js.html#lineNumber201">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {between} from &apos;<span><a href="file/src/validators.js.html#lineNumber198">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is in range of <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is in the range of <code>validValue</code></p>
 </div>
 
   
@@ -996,14 +1208,14 @@ between([1, 4])(6) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber82">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber73">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {contain} from &apos;<span><a href="file/src/validators.js.html#lineNumber82">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {contain} from &apos;<span><a href="file/src/validators.js.html#lineNumber73">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code> contains <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether a value contains <code>validValue</code></p>
 </div>
 
   
@@ -1159,14 +1371,14 @@ contain(&apos;test&apos;)(&apos;asd&apos;) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber164">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber159">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {equal} from &apos;<span><a href="file/src/validators.js.html#lineNumber164">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {equal} from &apos;<span><a href="file/src/validators.js.html#lineNumber159">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is equal to <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is equal to <code>validValue</code></p>
 </div>
 
   
@@ -1314,15 +1526,15 @@ equal(&apos;test&apos;)(&apos;test&apos;) =&gt; false</code></pre>
     
     
     
-    <span class="code" data-ice="name">getValidator</span><span class="code" data-ice="signature">(validator: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></span>
+    <span class="code" data-ice="name">getValidator</span><span class="code" data-ice="signature">(options: <span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span>): <span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber35">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber16">validators</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber35">validators</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Get a validator function</p>
@@ -1339,11 +1551,10 @@ equal(&apos;test&apos;)(&apos;test&apos;) =&gt; false</code></pre>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">validator</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>defines validator name and config. An object with a single property, which must be equal to
-one of the validator functions. The value of this property can be any type.</p>
+      <td data-ice="name" class="code" data-depth="0">options</td>
+      <td data-ice="type" class="code"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></td>
+      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
+      <td data-ice="description"><p>defines validator options</p>
 </td>
     </tr>
 </tbody>
@@ -1356,8 +1567,8 @@ one of the validator functions. The value of this property can be any type.</p>
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span><span>(value: <span>*</span>)</span>: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></span></span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>validator function</p>
+          <td class="return-type code" data-ice="returnType"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>validator</p>
 </td>
         </tr>
       </tbody>
@@ -1377,7 +1588,12 @@ one of the validator functions. The value of this property can be any type.</p>
       
       <tr class="throw" data-ice="throw">
         <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
-        <td data-ice="throwDesc"><p>when <code>validator</code> parameter is not defined</p>
+        <td data-ice="throwDesc"><p>when <code>options</code> parameter is not defined</p>
+</td>
+      </tr>
+<tr class="throw" data-ice="throw">
+        <td><p data-ice="throwName"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></span></p></td>
+        <td data-ice="throwDesc"><p>when <code>options.name</code> parameter is not defined</p>
 </td>
       </tr>
 <tr class="throw" data-ice="throw">
@@ -1396,10 +1612,10 @@ one of the validator functions. The value of this property can be any type.</p>
     
   <div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">getValidator({ required: null }) =&gt; `required` validator
-getValidator({ precision: 4 }) =&gt; `precision` validator with accuracy 4 meters
-getValidator({ between: [1, 4] }) =&gt; `between` validator with valid range [1, 4]
-getValidator({ maxDistance: 100 }) =&gt; `maxDistance` validator with maxumum distance 100 meters</code></pre>
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">getValidator({ name: &apos;required&apos; }) =&gt; `required` validator
+getValidator({ name: &apos;precision&apos;, validValue: 4 }) =&gt; `precision` validator with accuracy 4 meters
+getValidator({ name: &apos;between&apos;, validValue: [1, 4] }) =&gt; `between` validator with valid range [1, 4]
+getValidator({ name: &apos;maxDistance&apos; validValue: 100 }) =&gt; `maxDistance` validator with maxumum distance 100 meters</code></pre>
     </div>
 </div>
 
@@ -1420,14 +1636,14 @@ getValidator({ maxDistance: 100 }) =&gt; `maxDistance` validator with maxumum di
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber277">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber278">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {greaterThan} from &apos;<span><a href="file/src/validators.js.html#lineNumber277">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {greaterThan} from &apos;<span><a href="file/src/validators.js.html#lineNumber278">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is greater than <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is greater than <code>validValue</code></p>
 </div>
 
   
@@ -1501,14 +1717,14 @@ greaterThan(2)(1) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber295">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber297">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {greaterThanOrEqual} from &apos;<span><a href="file/src/validators.js.html#lineNumber295">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {greaterThanOrEqual} from &apos;<span><a href="file/src/validators.js.html#lineNumber297">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is greater than or equal to <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is greater than or equal to <code>validValue</code></p>
 </div>
 
   
@@ -1582,14 +1798,14 @@ greaterThanOrEqual(2)(1) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber236">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber235">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {inValues} from &apos;<span><a href="file/src/validators.js.html#lineNumber236">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {inValues} from &apos;<span><a href="file/src/validators.js.html#lineNumber235">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number, String</strong> - <code>value</code> is in <code>validValue</code> array</p>
+  <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is in <code>validValue</code> array</p>
 </div>
 
   
@@ -1653,6 +1869,474 @@ inValues([1, 2, 3])(4) =&gt; false</code></pre>
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isArray">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isArray</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber379">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isArray} from &apos;<span><a href="file/src/validators.js.html#lineNumber379">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is an <code>array</code></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isArray()([]) =&gt; true
+isArray()([&apos;2&apos;]) =&gt; true
+isArray()(false) =&gt; false
+isArray()(1) =&gt; false
+isArray()({}) =&gt; false
+isArray()() =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isBoolean">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isBoolean</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber443">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isBoolean} from &apos;<span><a href="file/src/validators.js.html#lineNumber443">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is from type <code>boolean</code></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isBoolean()(true) =&gt; true
+isBoolean()(false) =&gt; true
+isBoolean()(&apos;true&apos;) =&gt; false
+isBoolean()() =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isDefined">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isDefined</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber10">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isDefined} from &apos;<span><a href="file/src/validators.js.html#lineNumber10">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>Checks whether a value is defined or not</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isDefined()(4) =&gt; true
+isDefined()(null) =&gt; false
+isDefined()(&apos;&apos;) =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isFunction">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isFunction</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber462">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isFunction} from &apos;<span><a href="file/src/validators.js.html#lineNumber462">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is <code>function</code></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isFunction()(a =&gt; a * a) =&gt; true
+isFunction()(true) =&gt; false
+isFunction()({}) =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isInteger">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isInteger</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber423">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isInteger} from &apos;<span><a href="file/src/validators.js.html#lineNumber423">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is an integer <code>number</code></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isInteger()(1) =&gt; true
+isInteger()(-1) =&gt; true
+isInteger()(-2.3) =&gt; false
+isInteger()(3.1415926536) =&gt; false
+isInteger()({}) =&gt; false
+isInteger()(false) =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isNumber">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isNumber</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber401">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isNumber} from &apos;<span><a href="file/src/validators.js.html#lineNumber401">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is from type <code>number</code></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isNumber()(1) =&gt; true
+isNumber()(-1) =&gt; true
+isNumber()(&apos;1&apos;) =&gt; false
+isNumber()() =&gt; false
+isNumber()({}) =&gt; false
+isNumber()(false) =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-isString">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">isString</span><span class="code" data-ice="signature">(): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber357">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {isString} from &apos;<span><a href="file/src/validators.js.html#lineNumber357">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Any</strong> - checks whether a value is from type <code>string</code></p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">isString()(&apos;test&apos;) =&gt; true
+isString()(&apos;2&apos;) =&gt; true
+isString()(&apos;false&apos;) =&gt; true
+isString()(false) =&gt; false
+isString()(1) =&gt; false
+isString()() =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-function-lessThan">
     <span class="access" data-ice="access">public</span>
     
@@ -1664,14 +2348,14 @@ inValues([1, 2, 3])(4) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber313">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber316">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {lessThan} from &apos;<span><a href="file/src/validators.js.html#lineNumber313">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {lessThan} from &apos;<span><a href="file/src/validators.js.html#lineNumber316">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is less than <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is less than <code>validValue</code></p>
 </div>
 
   
@@ -1745,14 +2429,14 @@ lessThan(2)(2) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber331">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber335">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {lessThanOrEqual} from &apos;<span><a href="file/src/validators.js.html#lineNumber331">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {lessThanOrEqual} from &apos;<span><a href="file/src/validators.js.html#lineNumber335">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is less than or equal <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is less than or equal to <code>validValue</code></p>
 </div>
 
   
@@ -1826,14 +2510,14 @@ lessThanOrEqual(2)(22) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber120">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber113">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {like} from &apos;<span><a href="file/src/validators.js.html#lineNumber120">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {like} from &apos;<span><a href="file/src/validators.js.html#lineNumber113">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>String</strong> - <code>value</code> is equal to <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>String</strong> - checks whether a value is equal to <code>validValue</code></p>
 </div>
 
   
@@ -1903,18 +2587,18 @@ like(&apos;test&apos;)(&apos;asdasd&apos;) =&gt; false</code></pre>
     
     
     
-    <span class="code" data-ice="name">max</span><span class="code" data-ice="signature">(max: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
+    <span class="code" data-ice="name">max</span><span class="code" data-ice="signature">(validValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber65">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber55">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {max} from &apos;<span><a href="file/src/validators.js.html#lineNumber65">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {max} from &apos;<span><a href="file/src/validators.js.html#lineNumber55">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code>&apos;s length is greater than or equal to <code>max</code></p>
+  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether value&apos;s length is greater than or equal to <code>validValue</code></p>
 </div>
 
   
@@ -1928,7 +2612,7 @@ like(&apos;test&apos;)(&apos;asdasd&apos;) =&gt; false</code></pre>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">max</td>
+      <td data-ice="name" class="code" data-depth="0">validValue</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></td>
       <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
       <td data-ice="description"><p>maximum length value</p>
@@ -1989,11 +2673,11 @@ max(3)(&apos;asdf&apos;) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/gisValidators.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gisValidators.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {maxDistance} from &apos;<span><a href="file/src/gisValidators.js.html#lineNumber12">validators/src/gisValidators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {maxDistance} from &apos;<span><a href="file/src/gisValidators.js.html#lineNumber38">validators/src/gisValidators.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>For <strong>Coordinates</strong> - distance between <code>p1</code> and <code>p2</code> is less than or equal to <code>validValue</code></p>
@@ -2147,18 +2831,18 @@ getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450
     
     
     
-    <span class="code" data-ice="name">min</span><span class="code" data-ice="signature">(min: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
+    <span class="code" data-ice="name">min</span><span class="code" data-ice="signature">(validValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber38">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {min} from &apos;<span><a href="file/src/validators.js.html#lineNumber49">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {min} from &apos;<span><a href="file/src/validators.js.html#lineNumber38">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code>&apos;s length is greater than or equal to <code>min</code></p>
+  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether value&apos;s length is greater than or equal to <code>validValue</code></p>
 </div>
 
   
@@ -2172,7 +2856,7 @@ getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">min</td>
+      <td data-ice="name" class="code" data-depth="0">validValue</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></td>
       <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
       <td data-ice="description"><p>minimum length value</p>
@@ -2233,14 +2917,14 @@ min(3)(&apos;asdf&apos;) =&gt; true</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber219">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber217">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notBetween} from &apos;<span><a href="file/src/validators.js.html#lineNumber219">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notBetween} from &apos;<span><a href="file/src/validators.js.html#lineNumber217">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is not in range of <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is not in the range of <code>validValue</code></p>
 </div>
 
   
@@ -2316,14 +3000,14 @@ notBetween([1, 4])(6) =&gt; true</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber102">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber94">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notContain} from &apos;<span><a href="file/src/validators.js.html#lineNumber102">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notContain} from &apos;<span><a href="file/src/validators.js.html#lineNumber94">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - <code>value</code> contains <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Array</strong>, <strong>String</strong> - checks whether a value deos not contain <code>validValue</code></p>
 </div>
 
   
@@ -2398,14 +3082,14 @@ notContain(&apos;test&apos;))(&apos;asd&apos;) =&gt; true</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber183">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber179">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notEqual} from &apos;<span><a href="file/src/validators.js.html#lineNumber183">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notEqual} from &apos;<span><a href="file/src/validators.js.html#lineNumber179">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number</strong> - <code>value</code> is not equal to <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is not equal to <code>validValue</code></p>
 </div>
 
   
@@ -2487,7 +3171,7 @@ notEqual(&apos;test&apos;)(&apos;asdd&apos;) =&gt; true</code></pre>
   <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notInValues} from &apos;<span><a href="file/src/validators.js.html#lineNumber257">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Number, String</strong> - <code>value</code> is not in <code>validValue</code> array</p>
+  <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is not in <code>validValue</code> array</p>
 </div>
 
   
@@ -2562,14 +3246,14 @@ notInValues([1, 2, 3])(1) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber142">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber136">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notLike} from &apos;<span><a href="file/src/validators.js.html#lineNumber142">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {notLike} from &apos;<span><a href="file/src/validators.js.html#lineNumber136">validators/src/validators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>String</strong> - <code>value</code> is not equal to <code>validValue</code></p>
+  <div data-ice="description"><p>For <strong>String</strong> - checks whether a value is not equal to <code>validValue</code></p>
 </div>
 
   
@@ -2639,18 +3323,18 @@ notLike(&apos;test&apos;)(&apos;test&apos;) =&gt; false</code></pre>
     
     
     
-    <span class="code" data-ice="name">precision</span><span class="code" data-ice="signature">(precision: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
+    <span class="code" data-ice="name">precision</span><span class="code" data-ice="signature">(validValue: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber27">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/gisValidators.js.html#lineNumber13">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {precision} from &apos;<span><a href="file/src/validators.js.html#lineNumber27">validators/src/validators.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {precision} from &apos;<span><a href="file/src/gisValidators.js.html#lineNumber13">validators/src/gisValidators.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>For <strong>Location</strong> object - <code>value</code> is more precise than <code>precision</code></p>
+  <div data-ice="description"><p>For <strong>Location</strong> object - checks whether a value is more precise than <code>validValue</code></p>
 </div>
 
   
@@ -2664,7 +3348,7 @@ notLike(&apos;test&apos;)(&apos;test&apos;) =&gt; false</code></pre>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">precision</td>
+      <td data-ice="name" class="code" data-depth="0">validValue</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>accuracy in meters</p>
@@ -2706,71 +3390,6 @@ notLike(&apos;test&apos;)(&apos;test&apos;) =&gt; false</code></pre>
 precision(10)({ accuracy: 12 }) =&gt; false
 precision(10)({ coords: { accuracy: 4 }}) =&gt; true
 precision(10)({ coords: { accuracy: 12 }}) =&gt; false</code></pre>
-    </div>
-</div>
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-required">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">required</span><span class="code" data-ice="signature">(): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/validators.js.html#lineNumber10">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {required} from &apos;<span><a href="file/src/validators.js.html#lineNumber10">validators/src/validators.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Checks whether the <code>value</code> is defined or not</p>
-</div>
-
-  
-
-  <div data-ice="properties">
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tbody>
-        <tr>
-          <td class="return-type code" data-ice="returnType"><span>*</span></td>
-          
-        </tr>
-      </tbody>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  <div data-ice="example">
-    <h4>Example:</h4>
-    
-  <div class="example-doc" data-ice="exampleDoc">
-      
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">required()(4) =&gt; true
-required()(null) =&gt; false
-required()(&apos;&apos;) =&gt; false</code></pre>
     </div>
 </div>
 
