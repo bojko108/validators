@@ -12,7 +12,18 @@ export const isDefined = () => {
    * @param {*} value - to be checked
    * @return {Boolean}
    */
-  const validator = value => !!value;
+  const validator = value => {
+    if (isBoolean()(value)) {
+      return true;
+    }
+    if (isNumber()(value)) {
+      return true;
+    }
+    if (isString()(value)) {
+      return true;
+    }
+    return !!value;
+  };
   return validator;
 };
 /**

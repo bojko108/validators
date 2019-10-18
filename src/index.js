@@ -16,9 +16,7 @@ import * as validators from './validators';
 
 /**
  * Get a validator function
- * @param {!ValidatorOptions} options - defines validator name and config. An object with a single property, which must be equal to
- * one of the validator functions. The value of this property can be any type.
- * @param
+ * @param {!ValidatorOptions} options - defines validator options
  * @throws {Error} when `options` parameter is not defined
  * @throws {Error} when `options.name` parameter is not defined
  * @throws {Error} when there is no validation function defined
@@ -56,6 +54,8 @@ export const getValidator = options => {
  * @throws {Error} when `options.name` parameter is not defined
  * @throws {Error} when a validator already exists
  * @throws {Error} when `options.validate` is not a function
+ * @example
+ * addValidator({ name: "exact", validValue: 1, validate: (value) => value === 1 }) => defines and returns a new validator with name `exact`
  * @return {Validator} validator
  */
 export const addValidator = options => {

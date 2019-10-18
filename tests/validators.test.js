@@ -8,8 +8,10 @@ describe('Tests for Validators', () => {
     assert.isTrue(validator.validate({ a: 'test' }));
     assert.isTrue(validator.validate(1));
     assert.isTrue(validator.validate(true));
+    assert.isTrue(validator.validate(false));
+    assert.isTrue(validator.validate(0));
+    assert.isTrue(validator.validate(''));
     assert.isFalse(validator.validate());
-    assert.isFalse(validator.validate(''));
     assert.isFalse(validator.validate(undefined));
     assert.isFalse(validator.validate(null));
   });
