@@ -4,8 +4,13 @@ import * as validators from './validators';
  * @typedef Validator
  * @property {!String} name - name of the validator
  * @property {*} validValue - valid value for this validator
- * @property {!function(value: *): Boolean} validate - validator function which takes values and validates them
+ * @property {function(value:*):Boolean} validate - validator function which takes values and validates them
  * @property {String} [errorMessage]
+ */
+/**
+ * @typedef ValidatorFunction - function stored in `getValidator().validate`
+ * @param {*} value - value that needs to be validated
+ * @return {Boolean}
  */
 /**
  * @typedef ValidatorOptions
@@ -17,10 +22,10 @@ import * as validators from './validators';
 /**
  * Get a validator function
  * @param {!ValidatorOptions} options - defines validator options
+ * @return {Validator} validator
  * @throws {Error} when `options` parameter is not defined
  * @throws {Error} when `options.name` parameter is not defined
  * @throws {Error} when there is no validation function defined
- * @return {Validator} validator
  * @example
  * getValidator({ name: 'required' }) => `required` validator
  * getValidator({ name: 'precision', validValue: 4 }) => `precision` validator with accuracy 4 meters
@@ -50,13 +55,13 @@ export const getValidator = options => {
 /**
  * Add a new validator.
  * @param {!Validator} options - options for the custom validator
+ * @return {Validator} validator
  * @throws {Error} when `options` parameter is not defined
  * @throws {Error} when `options.name` parameter is not defined
  * @throws {Error} when a validator already exists
  * @throws {Error} when `options.validate` is not a function
  * @example
  * addValidator({ name: "exact", validValue: 1, validate: (value) => value === 1 }) => defines and returns a new validator with name `exact`
- * @return {Validator} validator
  */
 export const addValidator = options => {
   if (!options) {

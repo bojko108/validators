@@ -43,6 +43,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThan">greaterThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThanOrEqual">greaterThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-inValues">inValues</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isArray">isArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isBoolean">isBoolean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDefined">isDefined</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isFunction">isFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isInteger">isInteger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isString">isString</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThan">lessThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThanOrEqual">lessThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-like">like</a></span></span></li>
@@ -54,7 +61,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notInValues">notInValues</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notLike">notLike</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-required">required</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorFunction">ValidatorFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -63,40 +72,84 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import * as validators from &apos;./validators&apos;;
 
 /**
- * Get a validator function
- * @param {Object} validator - defines validator name and config. An object with a single property, which must be equal to
- * one of the validator functions. The value of this property can be any type.
- * @throws {Error} when `validator` parameter is not defined
- * @throws {Error} when there is no validation function defined
- * @return {function(value: *): Boolean} validator function
- * @example
- * getValidator({ required: null }) =&gt; `required` validator
- * getValidator({ precision: 4 }) =&gt; `precision` validator with accuracy 4 meters
- * getValidator({ between: [1, 4] }) =&gt; `between` validator with valid range [1, 4]
- * getValidator({ maxDistance: 100 }) =&gt; `maxDistance` validator with maxumum distance 100 meters
+ * @typedef Validator
+ * @property {!String} name - name of the validator
+ * @property {*} validValue - valid value for this validator
+ * @property {function(value:*):Boolean} validate - validator function which takes values and validates them
+ * @property {String} [errorMessage]
  */
-export const getValidator = validator =&gt; {
-  if (!validator) {
-    throw &quot;&apos;validator&apos; must be an object with a single property, which must be equal to one of the validator functions. For example: { required: null }, { precision: 4 }, { between: [1, 4] }, { maxDistance: 100 }&quot;;
+/**
+ * @typedef ValidatorFunction - function stored in `getValidator().validate`
+ * @param {*} value - value that needs to be validated
+ * @return {Boolean}
+ */
+/**
+ * @typedef ValidatorOptions
+ * @property {!String} name - name of the validator - should be unique
+ * @property {!*} validValue - valid value for this validator
+ * @property {String} [errorMessage]
+ */
+
+/**
+ * Get a validator function
+ * @param {!ValidatorOptions} options - defines validator options
+ * @return {Validator} validator
+ * @throws {Error} when `options` parameter is not defined
+ * @throws {Error} when `options.name` parameter is not defined
+ * @throws {Error} when there is no validation function defined
+ * @example
+ * getValidator({ name: &apos;required&apos; }) =&gt; `required` validator
+ * getValidator({ name: &apos;precision&apos;, validValue: 4 }) =&gt; `precision` validator with accuracy 4 meters
+ * getValidator({ name: &apos;between&apos;, validValue: [1, 4] }) =&gt; `between` validator with valid range [1, 4]
+ * getValidator({ name: &apos;maxDistance&apos; validValue: 100 }) =&gt; `maxDistance` validator with maxumum distance 100 meters
+ */
+export const getValidator = options =&gt; {
+  if (!options) {
+    throw &apos;&quot;options&quot; must be an object. For example: { name: &quot;required&quot; }, { name: &quot;precision&quot;, validValue: 4 }, { name: &quot;between&quot;, validValue: [1, 4] }, { name: &quot;maxDistance&quot;, validValue: 100 }&apos;;
   }
-  const name = Object.keys(validator)[0];
-  const config = validator[name];
-  const func = validators[name];
-  if (!func) {
-    throw `Validator &apos;${name}&apos; could not be found! Try to define it with: addValidator(${name}, &lt;callback&gt;)`;
+  const { name, validValue, errorMessage } = options;
+  let validate = options.validate;
+  if (!name) {
+    const validNames = Object.keys(validators).join(&apos;&quot;,&quot;&apos;);
+    throw `&quot;options.name&quot; is required and should be one of: ${validNames}`;
   }
-  return func(config);
+  if (!validate) {
+    const func = validators[name];
+    if (!func) {
+      throw `Validator &quot;${name}&quot; could not be found! Try to define it with: addValidator({ name: &quot;${name}&quot;, validValue: &quot;someValidValue&quot;, validate: (value) =&gt; { return value === &quot;someValidValue&quot; }})`;
+    }
+    validate = func(validValue);
+  }
+  return { name, validValue, errorMessage, validate };
 };
 
 /**
- *
- * @param {!String} name - name of the custom validator
- * @param {!function(value: *): Boolean} callback - function that receives a `value` and must return a boolean.
- * @return {function(value: *): Boolean} validator function
+ * Add a new validator.
+ * @param {!Validator} options - options for the custom validator
+ * @return {Validator} validator
+ * @throws {Error} when `options` parameter is not defined
+ * @throws {Error} when `options.name` parameter is not defined
+ * @throws {Error} when a validator already exists
+ * @throws {Error} when `options.validate` is not a function
+ * @example
+ * addValidator({ name: &quot;exact&quot;, validValue: 1, validate: (value) =&gt; value === 1 }) =&gt; defines and returns a new validator with name `exact`
  */
-export const addValidator = (name, callback) =&gt; {
-  validators[name] = callback;
-  return validators[name];
+export const addValidator = options =&gt; {
+  if (!options) {
+    throw &apos;&quot;options&quot; must be an object. For example: { name: &quot;someName&quot;, validValue: &quot;someValidValue&quot;, validate: (value) =&gt; { return value === &quot;someValidValue&quot; }}&apos;;
+  }
+  const { name, validValue, errorMessage, validate } = options;
+  if (!name) {
+    throw &apos;&quot;options.name&quot; is required&apos;;
+  }
+  if (name in validators) {
+    throw `Validator &quot;${name}&quot; already exists! You can call it with: getValidator({ name: &quot;${name}&quot;, validValue: &quot;someValidValue&quot; })`;
+  }
+  if (!validate || !validators.isFunction(validate)) {
+    throw &apos;&quot;options.validate&quot; must be a function&apos;;
+  }
+  validators[name] = validate;
+  return { name, validValue, errorMessage, validate };
 };
 </code></pre>
 

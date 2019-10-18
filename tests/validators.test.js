@@ -207,4 +207,19 @@ describe('Tests for Validators', () => {
     assert.isFalse(validator.validate('true'));
     assert.isFalse(validator.validate());
   });
+
+  it('Test "isFunction" validator', () => {
+    const validator = getValidator({ name: 'isFunction' });
+    assert.isTrue(
+      validator.validate(function(a) {
+        console.log(a);
+      })
+    );
+    assert.isTrue(validator.validate(a => а * а));
+    assert.isFalse(validator.validate());
+    assert.isFalse(validator.validate(1));
+    assert.isFalse(validator.validate({}));
+    assert.isFalse(validator.validate([]));
+    assert.isFalse(validator.validate(true));
+  });
 });

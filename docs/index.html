@@ -43,6 +43,13 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThan">greaterThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-greaterThanOrEqual">greaterThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-inValues">inValues</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isArray">isArray</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isBoolean">isBoolean</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isDefined">isDefined</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isFunction">isFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isInteger">isInteger</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isNumber">isNumber</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isString">isString</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThan">lessThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThanOrEqual">lessThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-like">like</a></span></span></li>
@@ -54,27 +61,72 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notInValues">notInValues</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notLike">notLike</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-required">required</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorFunction">ValidatorFunction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="validators">Validators</h1><p>Set of custom validation functions.</p>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="validators">Validators</h1><p>Set of custom validation functions. You can read the documentation here: <a href="https://bojko108.github.io/validators/">https://bojko108.github.io/validators/</a></p>
 <h2 id="how-to-install">How to install</h2><pre><code><code class="source-code prettyprint">yarn add bojko108/validators</code>
 </code></pre><h2 id="how-to-use">How to use</h2><h3 id="get-a-validator">Get a validator</h3><pre><code class="lang-js"><code class="source-code prettyprint">import { getValidator } from &apos;validators&apos;;
 
-const validator1 = getValidator({ precision: 10 });
-validator1({ coords: { accuracy: 4 } }); // =&gt; true
+const validator1 = getValidator({ name: &apos;precision&apos; validValue: 10 });
+validator1.validate({ coords: { accuracy: 4 } }); // =&gt; true
 
-const validator2 = getValidator({ between: [1, 4] });
-validator2(1); // =&gt; true</code>
+const validator2 = getValidator({ name: &apos;between&apos;, validValue: [1, 4] });
+validator2.validate(1); // =&gt; true</code>
 </code></pre>
 <h3 id="add-a-custom-validator">Add a custom validator</h3><pre><code class="lang-js"><code class="source-code prettyprint">import { addValidator } from &apos;validators&apos;;
 
-const validator = addValidator(&apos;test&apos;, value =&gt; {
-  // test the value and return true or false
+const validator = addValidator({
+  name&apos;exact&apos;,
+  validValue: 1,
+  validate: (value) =&gt; {
+    return value === validValue
+  }
 });
-validator(value);</code>
+validator.validate(value);</code>
+</code></pre>
+<h2 id="validators">Validators</h2><p>Here is a list of all predefined validators. You can use them by calling <code>getValidator({ name: &lt;validatorName&gt; })</code>. All custom validators added by <code>addValidator()</code> will be available in <code>getValidator()</code>. An error is thrown if a validator already exists and you try to redefine it with <code>addValidator()</code>.</p>
+<h3 id="validators">Validators</h3><ul>
+<li><code>isDefined</code> - returns <code>true</code> if the value is defined. Returns <code>false</code> for <code>undefined</code> and <code>null</code>.</li>
+<li><code>isString</code> - returns <code>true</code> if the value is <code>string</code>.</li>
+<li><code>isArray</code> - returns <code>true</code> if the value type is <code>array</code>.</li>
+<li><code>isNumber</code> - returns <code>true</code> if the value type is <code>number</code>.</li>
+<li><code>isInteger</code> - returns <code>true</code> if the value is an integer <code>number</code>.</li>
+<li><code>isBoolean</code> - returns <code>true</code> if the value type is <code>boolean</code>.</li>
+<li><code>isFunction</code> - returns <code>true</code> if the value type is <code>function</code>.</li>
+<li><code>precision</code> - validates the accuracy of a <a href="https://docs.expo.io/versions/latest/sdk/location/#type-location">Location</a> object.</li>
+<li><code>min</code> - validates length of <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the length is greater than or equal to the valid value.</li>
+<li><code>max</code> - validates length of <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the length is less than or equal to the valid value.</li>
+<li><code>contain</code> - validates <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the valid value contains tested value. Opposite of <code>notContain</code>.</li>
+<li><code>notContain</code> - validates <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the valid value does not contain tested value. Opposite of <code>contain</code>.</li>
+<li><code>like</code> - validates <strong>String</strong>. Returns <code>true</code> if the tested value is equal to the valid value. Opposite of <code>notLike</code>.</li>
+<li><code>notLike</code> - validates <strong>String</strong>. Returns <code>true</code> if the tested value is not equal to the valid value. Opposite of <code>like</code>.</li>
+<li><code>equal</code> - validates <strong>Number</strong>. Returns <code>true</code> if the tested value is equal to the valid value. Opposite of <code>notEqual</code>.</li>
+<li><code>notEqual</code> - validates <strong>String</strong>. Returns <code>true</code> if the tested value is not equal to the valid value. Opposite of <code>equal</code>.</li>
+<li><code>between</code> - validates <strong>Number</strong>. Returns <code>true</code> if the tested value is in the range of the valid value. Opposite of <code>notBetween</code>.</li>
+<li><code>notBetween</code> - validates strings. Returns <code>true</code> if the tested value is not in the range of the valid value. Opposite of <code>between</code>.</li>
+<li><code>inValues</code> - validates <strong>Number</strong> or <strong>String</strong>. Returns <code>true</code> if the tested value is present in valid value array. Opposite of <code>notInValues</code>.</li>
+<li><code>notInValues</code> - validates <strong>Number</strong> or <strong>String</strong>. Returns <code>true</code> if the tested value is not present in valid value array. Opposite of <code>inValues</code>.</li>
+<li><code>greaterThan</code> - validates <strong>Number</strong>. Returns <code>true</code> if the tested value is greater than the valid value. Opposite of <code>lessThan</code>.</li>
+<li><code>greaterThanOrEqual</code> - validates <strong>Number</strong>. Returns <code>true</code> if the tested value is greater than or equal to the valid value.</li>
+<li><code>lessThan</code> - validates <strong>Number</strong>. Returns <code>true</code> if the tested value is less than the valid value. Opposite of <code>greaterThan</code>.</li>
+<li><code>lessThanOrEqual</code> - validates <strong>Number</strong>. Returns <code>true</code> if the tested value is less than or equal to the valid value.</li>
+</ul>
+<h3 id="gis-validators">Gis Validators</h3><ul>
+<li><code>maxDistance</code> - calculates distance between two points and returns <code>true</code> if it&apos;s less than or equal to the valid value. The distance is calculated using eucledian formula. If you use geographic coordinates, you can pass a third parameter to tell the function that the distance should be calculated in meters instead of decimal degrees:</li>
+</ul>
+<pre><code class="lang-js"><code class="source-code prettyprint">import { maxDistance } from &apos;validators/src/gisValidators.js&apos;;
+
+const validValue = 100; // in meters
+const p1 = [42.678748, 23.338703]; // in decimal degrees
+const p2 = [42.678803, 23.338928]; // in decimal degrees
+
+// pass true so the distance can be calculated in meters and then compared to the valid value
+maxDistance(validValue)(p1, p2, true);</code>
 </code></pre>
 <h2 id="tests">Tests</h2><p>Check <a href="https://github.com/bojko108/validators/tree/master/tests">tests</a> for more examples.</p>
 <h2 id="license">License</h2><p>transformations is <a href="https://github.com/bojko108/validators/tree/master/LICENSE">MIT</a> License @ bojko108</p>

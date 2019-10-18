@@ -1,7 +1,7 @@
 export { maxDistance } from './gisValidators';
 
 /**
- * Checks whether the `value` is defined or not
+ * Checks whether a value is defined or not
  * @example
  * isDefined()(4) => true
  * isDefined()(null) => false
@@ -9,6 +9,7 @@ export { maxDistance } from './gisValidators';
  */
 export const isDefined = () => {
   /**
+   * Returns `true` if `value` is not `undefined` or `null`.
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -27,62 +28,67 @@ export const isDefined = () => {
   return validator;
 };
 /**
- * For **Location** object - `value` is more precise than `precision`
- * @param {Number} precision - accuracy in meters
+ * For **Location** object - checks whether a value is more precise than `validValue`
+ * @param {Number} validValue - accuracy in meters
  * @example
  * precision(10)({ accuracy: 4 }) => true
  * precision(10)({ accuracy: 12 }) => false
  * precision(10)({ coords: { accuracy: 4 }}) => true
  * precision(10)({ coords: { accuracy: 12 }}) => false
  */
-export const precision = precision => {
+export const precision = validValue => {
   /**
+   * Returns `true` if `value` is more precise than `validValue`
    * @param {!Object} value - location object, returned by the GPS
-   * @property {Number} [value.accuracy]
-   * @property {Object} [value.coords]
-   * @property {!Number} value.coords.accuracy
+   * ```
+   * [value.accuracy] - accuracy in meters
+   * [value.coords] - coords object returned by the GPS
+   * [value.coords.accuracy] - accuracy in meters
+   * ```
    * @return {Boolean}
    */
   const validator = value => {
     const coords = value.coords || value;
-    return coords.accuracy <= precision;
+    return coords.accuracy <= validValue;
   };
   return validator;
 };
 /**
- * For **Array**, **String** - `value`'s length is greater than or equal to `min`
- * @param {!Number} min - minimum length value
+ * For **Array**, **String** - checks whether value's length is greater than or equal to `validValue`
+ * @param {!Number} validValue - minimum length value
  * @example
  * min(3)('as') => false
  * min(3)('asd') => true
  * min(3)('asdf') => true
  */
-export const min = min => {
+export const min = validValue => {
   /**
+   * Returns `true` if `value`'s length is greater than or equal to `validValue`
    * @param {!(Array.<*>|String)} value - to be checked
    * @return {Boolean}
    */
-  const validator = value => value.length >= min;
+  const validator = value => value.length >= validValue;
   return validator;
 };
 /**
- * For **Array**, **String** - `value`'s length is greater than or equal to `max`
- * @param {!Number} max - maximum length value
+ * For **Array**, **String** - checks whether value's length is greater than or equal to `validValue`
+ * @param {!Number} validValue - maximum length value
  * @example
  * max(3)('as') => true
  * max(3)('asd') => true
  * max(3)('asdf') => false
  */
-export const max = max => {
+export const max = validValue => {
   /**
+   * Returns `true` if `value`'s length is greater than or equal to `validValue`
    * @param {!(Array.<*>|String)} value - to be checked
    * @return {Boolean}
    */
-  const validator = value => value.length <= max;
+  const validator = value => value.length <= validValue;
   return validator;
 };
 /**
- * For **Array**, **String** - `value` contains `validValue`
+ * For **Array**, **String** - checks whether a value contains `validValue`
  * @param {*} validValue
  * @example
  * contain('test')('testA') => true
@@ -92,6 +98,7 @@ export const max = max => {
  */
 export const contain = validValue => {
   /**
+   * Returns `true` if `value` contains `validValue`
    * @param {!(Array.<*>|String)} value - to be checked
    * @return {Boolean}
    */
@@ -102,7 +109,7 @@ export const contain = validValue => {
 };
 
 /**
- * For **Array**, **String** - `value` contains `validValue`
+ * For **Array**, **String** - checks whether a value deos not contain `validValue`
  * @param {*} validValue
  * @example
  * notContain('test'))('testA') => false
@@ -112,6 +119,7 @@ export const contain = validValue => {
  */
 export const notContain = validValue => {
   /**
+   * Returns `true` if `value` deos not contain `validValue`
    * @param {!(Array.<*>|String)} value - to be checked
    * @return {Boolean}
    */
@@ -121,7 +129,7 @@ export const notContain = validValue => {
   return validator;
 };
 /**
- * For **String** - `value` is equal to `validValue`
+ * For **String** - checks whether a value is equal to `validValue`
  * @param {String} validValue
  * @example
  * like('test')('test') => true
@@ -130,6 +138,7 @@ export const notContain = validValue => {
  */
 export const like = validValue => {
   /**
+   * Returns `true` if `value` is equal to `validValue`
    * @param {String} value - to be checked
    * @return {Boolean}
    */
@@ -143,7 +152,7 @@ export const like = validValue => {
 };
 
 /**
- * For **String** - `value` is not equal to `validValue`
+ * For **String** - checks whether a value is not equal to `validValue`
  * @param {String} validValue
  * @example
  * notLike('test')('asd') => true
@@ -152,6 +161,7 @@ export const like = validValue => {
  */
 export const notLike = validValue => {
   /**
+   * Returns `true` if `value` is not equal to `validValue`
    * @param {String} value - to be checked
    * @return {Boolean}
    */
@@ -165,7 +175,7 @@ export const notLike = validValue => {
 };
 
 /**
- * For **Number** - `value` is equal to `validValue`
+ * For **Number** - checks whether a value is equal to `validValue`
  * @param {!Number} validValue
  * @example
  * equal(2)(2) => true
@@ -174,6 +184,7 @@ export const notLike = validValue => {
  */
 export const equal = validValue => {
   /**
+   * Returns `true` if `value` is equal to `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -183,7 +194,7 @@ export const equal = validValue => {
   return validator;
 };
 /**
- * For **Number** - `value` is not equal to `validValue`
+ * For **Number** - checks whether a value is not equal to `validValue`
  * @param {!Number} validValue
  * @example
  * notEqual(1)(2) => true
@@ -193,6 +204,7 @@ export const equal = validValue => {
  */
 export const notEqual = validValue => {
   /**
+   * Returns `true` if `value` is not equal to `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -202,7 +214,7 @@ export const notEqual = validValue => {
   return validator;
 };
 /**
- * For **Number** - `value` is in range of `validValue`
+ * For **Number** - checks whether a value is in the range of `validValue`
  * @param {!Array.<Number>} validValue - as range array
  * @example
  * between([1, 4])(1) => true
@@ -211,6 +223,7 @@ export const notEqual = validValue => {
  */
 export const between = validValue => {
   /**
+   * Returns `true` if `value` is in range of `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -219,7 +232,7 @@ export const between = validValue => {
 };
 
 /**
- * For **Number** - `value` is not in range of `validValue`
+ * For **Number** - checks whether a value is not in the range of `validValue`
  * @param {!Array.<Number>} validValue - as range array
  * @example
  * notBetween([1, 4])(1) => false
@@ -229,6 +242,7 @@ export const between = validValue => {
  */
 export const notBetween = validValue => {
   /**
+   * Returns `true` if `value` is not in the range of `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -236,7 +250,7 @@ export const notBetween = validValue => {
   return validator;
 };
 /**
- * For **Number, String** - `value` is in `validValue` array
+ * For **Number, String** - checks whether a value is in `validValue` array
  * @param {!Array.<*>} validValue
  * @example
  * inValues([1, 2, 3])(1) => true
@@ -246,6 +260,7 @@ export const notBetween = validValue => {
  */
 export const inValues = validValue => {
   /**
+   * Returns `true` if `value` is in `validValue` array
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -257,7 +272,7 @@ export const inValues = validValue => {
   return validator;
 };
 /**
- * For **Number, String** - `value` is not in `validValue` array
+ * For **Number, String** - checks whether a value is not in `validValue` array
  * @param {!Array.<*>} validValue
  * @example
  * notInValues([1, 2, 3])(4) => true
@@ -267,6 +282,7 @@ export const inValues = validValue => {
  */
 export const notInValues = validValue => {
   /**
+   * Returns `true` if `value` is not in `validValue` array
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -278,7 +294,7 @@ export const notInValues = validValue => {
   return validator;
 };
 /**
- * For **Number** - `value` is greater than `validValue`
+ * For **Number** - checks whether a value is greater than `validValue`
  * @param {!Number} validValue
  * @example
  * greaterThan(2)(12) => true
@@ -287,6 +303,7 @@ export const notInValues = validValue => {
  */
 export const greaterThan = validValue => {
   /**
+   * Returns `true` if `value` is greater than `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -296,7 +313,7 @@ export const greaterThan = validValue => {
   return validator;
 };
 /**
- * For **Number** - `value` is greater than or equal to `validValue`
+ * For **Number** - checks whether a value is greater than or equal to `validValue`
  * @param {!Number} validValue
  * @example
  * greaterThanOrEqual(2)(2) => true
@@ -305,6 +322,7 @@ export const greaterThan = validValue => {
  */
 export const greaterThanOrEqual = validValue => {
   /**
+   * Returns `true` if `value` is greater than or equal to `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -314,7 +332,7 @@ export const greaterThanOrEqual = validValue => {
   return validator;
 };
 /**
- * For **Number** - `value` is less than `validValue`
+ * For **Number** - checks whether a value is less than `validValue`
  * @param {!Number} validValue
  * @example
  * lessThan(2)(1) => true
@@ -323,6 +341,7 @@ export const greaterThanOrEqual = validValue => {
  */
 export const lessThan = validValue => {
   /**
+   * Returns `true` if `value` is less than `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -332,7 +351,7 @@ export const lessThan = validValue => {
   return validator;
 };
 /**
- * For **Number** - `value` is less than or equal `validValue`
+ * For **Number** - checks whether a value is less than or equal to `validValue`
  * @param {!Number} validValue
  * @example
  * lessThanOrEqual(2)(2) => true
@@ -341,6 +360,7 @@ export const lessThan = validValue => {
  */
 export const lessThanOrEqual = validValue => {
   /**
+   * Returns `true` if `value` is less than or equal to `validValue`
    * @param {!Number} value - to be checked
    * @return {Boolean}
    */
@@ -351,7 +371,7 @@ export const lessThanOrEqual = validValue => {
 };
 
 /**
- * For **Any** - `value` is from type `string`
+ * For **Any** - checks whether a value is from type `string`
  * @example
  * isString()('test') => true
  * isString()('2') => true
@@ -362,6 +382,7 @@ export const lessThanOrEqual = validValue => {
  */
 export const isString = () => {
   /**
+   * Returns `true` if `value` is from type `string`
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -372,7 +393,7 @@ export const isString = () => {
 };
 
 /**
- * For **Any** - `value` is an `array`
+ * For **Any** - checks whether a value is an `array`
  * @example
  * isArray()([]) => true
  * isArray()(['2']) => true
@@ -383,6 +404,7 @@ export const isString = () => {
  */
 export const isArray = () => {
   /**
+   * Returns `true` if `value` is an `array`
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -393,7 +415,7 @@ export const isArray = () => {
 };
 
 /**
- * For **Any** - `value` is from type `number`
+ * For **Any** - checks whether a value is from type `number`
  * @example
  * isNumber()(1) => true
  * isNumber()(-1) => true
@@ -404,6 +426,7 @@ export const isArray = () => {
  */
 export const isNumber = () => {
   /**
+   * Returns `true` if `value` is from type `number`
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -414,7 +437,7 @@ export const isNumber = () => {
 };
 
 /**
- * For **Any** - `value` is an integer `number`
+ * For **Any** - checks whether a value is an integer `number`
  * @example
  * isInteger()(1) => true
  * isInteger()(-1) => true
@@ -425,6 +448,7 @@ export const isNumber = () => {
  */
 export const isInteger = () => {
   /**
+   * Returns `true` if `value` is an integer `number`
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -435,7 +459,7 @@ export const isInteger = () => {
 };
 
 /**
- * For **Any** - `value` is from type `boolean`
+ * For **Any** - checks whether a value is from type `boolean`
  * @example
  * isBoolean()(true) => true
  * isBoolean()(false) => true
@@ -444,6 +468,7 @@ export const isInteger = () => {
  */
 export const isBoolean = () => {
   /**
+   * Returns `true` if `value` is from type `boolean`
    * @param {*} value - to be checked
    * @return {Boolean}
    */
@@ -454,10 +479,15 @@ export const isBoolean = () => {
 };
 
 /**
- * For **Any** - `value` is `function`
+ * For **Any** - checks whether a value is `function`
+ * @example
+ * isFunction()(a => a * a) => true
+ * isFunction()(true) => false
+ * isFunction()({}) => false
  */
 export const isFunction = () => {
   /**
+   * Рeturns `true` if `value` is `function`
    * @param {*} value - to be checked
    * @return {Boolean}
    */

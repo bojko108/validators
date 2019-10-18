@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 26,
-  "actualCount": 26,
+  "expectCount": 32,
+  "actualCount": 32,
   "files": {
     "src/gisValidators.js": {
       "expectCount": 1,
@@ -19,8 +19,8 @@
       "undocumentLines": []
     },
     "src/validators.js": {
-      "expectCount": 18,
-      "actualCount": 18,
+      "expectCount": 24,
+      "actualCount": 24,
       "undocumentLines": []
     }
   }

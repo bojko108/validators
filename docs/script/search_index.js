@@ -60,6 +60,48 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "validators/src/validators.js~isarray",
+    "function/index.html#static-function-isArray",
+    "<span>isArray</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/validators.js~isboolean",
+    "function/index.html#static-function-isBoolean",
+    "<span>isBoolean</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/validators.js~isdefined",
+    "function/index.html#static-function-isDefined",
+    "<span>isDefined</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/validators.js~isfunction",
+    "function/index.html#static-function-isFunction",
+    "<span>isFunction</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/validators.js~isinteger",
+    "function/index.html#static-function-isInteger",
+    "<span>isInteger</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/validators.js~isnumber",
+    "function/index.html#static-function-isNumber",
+    "<span>isNumber</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/validators.js~isstring",
+    "function/index.html#static-function-isString",
+    "<span>isString</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
     "validators/src/validators.js~lessthan",
     "function/index.html#static-function-lessThan",
     "<span>lessThan</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
@@ -135,12 +177,6 @@ window.esdocSearchIndex = [
     "validators/src/validators.js~precision",
     "function/index.html#static-function-precision",
     "<span>precision</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
-    "function"
-  ],
-  [
-    "validators/src/validators.js~required",
-    "function/index.html#static-function-required",
-    "<span>required</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
     "function"
   ],
   [
@@ -448,6 +484,24 @@ window.esdocSearchIndex = [
     "file/src/index.js.html",
     "src/index.js",
     "file"
+  ],
+  [
+    "src/index.js~validator",
+    "typedef/index.html#static-typedef-Validator",
+    "src/index.js~Validator",
+    "typedef"
+  ],
+  [
+    "src/index.js~validatorfunction",
+    "typedef/index.html#static-typedef-ValidatorFunction",
+    "src/index.js~ValidatorFunction",
+    "typedef"
+  ],
+  [
+    "src/index.js~validatoroptions",
+    "typedef/index.html#static-typedef-ValidatorOptions",
+    "src/index.js~ValidatorOptions",
+    "typedef"
   ],
   [
     "src/math.js",
