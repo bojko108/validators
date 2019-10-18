@@ -7,11 +7,7 @@ import * as validators from './validators';
  * @property {function(value:*):Boolean} validate - validator function which takes values and validates them
  * @property {String} [errorMessage]
  */
-/**
- * @typedef ValidatorFunction - function stored in `getValidator().validate`
- * @param {*} value - value that needs to be validated
- * @return {Boolean}
- */
+
 /**
  * @typedef ValidatorOptions
  * @property {!String} name - name of the validator - should be unique
@@ -40,7 +36,7 @@ export const getValidator = options => {
   let validate = options.validate;
   if (!name) {
     const validNames = Object.keys(validators).join('","');
-    throw `"options.name" is required and should be one of: ${validNames}`;
+    throw `"options.name" is required and should be one of: "${validNames}"`;
   }
   if (!validate) {
     const func = validators[name];
