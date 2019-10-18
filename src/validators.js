@@ -332,8 +332,112 @@ export const lessThanOrEqual = validValue => {
   /**
    * @param {!Number} value - to be checked
    * @return {Boolean}
-   */ const validator = value => {
+   */
+  const validator = value => {
     return Number(value) <= Number(validValue);
+  };
+  return validator;
+};
+
+/**
+ * For **Any** - `value` is from type `string`
+ * @example
+ * isString()('test') => true
+ * isString()('2') => true
+ * isString()('false') => true
+ * isString()(false) => false
+ * isString()(1) => false
+ * isString()() => false
+ */
+export const isString = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return typeof value === 'string';
+  };
+  return validator;
+};
+
+/**
+ * For **Any** - `value` is an `array`
+ * @example
+ * isArray()([]) => true
+ * isArray()(['2']) => true
+ * isArray()(false) => false
+ * isArray()(1) => false
+ * isArray()({}) => false
+ * isArray()() => false
+ */
+export const isArray = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return {}.toString.call(value) === '[object Array]';
+  };
+  return validator;
+};
+
+/**
+ * For **Any** - `value` is from type `number`
+ * @example
+ * isNumber()(1) => true
+ * isNumber()(-1) => true
+ * isNumber()('1') => false
+ * isNumber()() => false
+ * isNumber()({}) => false
+ * isNumber()(false) => false
+ */
+export const isNumber = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return typeof value === 'number' && !isNaN(value);
+  };
+  return validator;
+};
+
+/**
+ * For **Any** - `value` is an integer `number`
+ * @example
+ * isInteger()(1) => true
+ * isInteger()(-1) => true
+ * isInteger()(-2.3) => false
+ * isInteger()(3.1415926536) => false
+ * isInteger()({}) => false
+ * isInteger()(false) => false
+ */
+export const isInteger = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return isNumber()(value) && value % 1 === 0;
+  };
+  return validator;
+};
+
+/**
+ * For **Any** - `value` is from type `boolean`
+ * @example
+ * isBoolean()(true) => true
+ * isBoolean()(false) => true
+ * isBoolean()('true') => false
+ * isBoolean()() => false
+ */
+export const isBoolean = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return typeof value === 'boolean';
   };
   return validator;
 };

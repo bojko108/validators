@@ -188,4 +188,51 @@ describe('Tests for Validators', () => {
     assert.isTrue(validator(1));
     assert.isFalse(validator(22));
   });
+
+  it('Test "isString" validator', () => {
+    const validator = getValidator({ isString: null });
+    assert.isTrue(validator('test'));
+    assert.isTrue(validator('2'));
+    assert.isTrue(validator('false'));
+    assert.isFalse(validator(false));
+    assert.isFalse(validator(1));
+    assert.isFalse(validator());
+  });
+
+  it('Test "isArray" validator', () => {
+    const validator = getValidator({ isArray: null });
+    assert.isTrue(validator([]));
+    assert.isTrue(validator(['2']));
+    assert.isFalse(validator(false));
+    assert.isFalse(validator(1));
+    assert.isFalse(validator({}));
+    assert.isFalse(validator());
+  });
+
+  it('Test "isNumber" validator', () => {
+    const validator = getValidator({ isNumber: null });
+    assert.isTrue(validator(1));
+    assert.isTrue(validator(-1));
+    assert.isFalse(validator('1'));
+    assert.isFalse(validator());
+    assert.isFalse(validator({}));
+    assert.isFalse(validator(false));
+  });
+
+  it('Test "isInteger" validator', () => {
+    const validator = getValidator({ isInteger: null });
+    assert.isTrue(validator(1));
+    assert.isTrue(validator(-1));
+    assert.isFalse(validator(3.1415926536));
+  });
+
+  it('Test "isBoolean" validator', () => {
+    const validator = getValidator({ isBoolean: null });
+    assert.isTrue(validator(true));
+    assert.isTrue(validator(false));
+    assert.isFalse(validator(1));
+    assert.isFalse(validator(0));
+    assert.isFalse(validator('true'));
+    assert.isFalse(validator());
+  });
 });
