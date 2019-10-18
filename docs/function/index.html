@@ -29,8 +29,10 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-maxDistance">maxDistance</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-codeInDomain">codeInDomain</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-maxDistance">maxDistance</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-valueInDomain">valueInDomain</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addValidator">addValidator</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidator">getValidator</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-degreesToMeters">degreesToMeters</a></span></span></li>
@@ -62,7 +64,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notInValues">notInValues</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notLike">notLike</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorFunction">ValidatorFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></span></li>
 </ul>
 </div>
@@ -123,6 +124,35 @@
         
         
         <div data-ice="description"><p>For <strong>Number</strong> - checks whether a value is in the range of <code>validValue</code></p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-codeInDomain">codeInDomain</a></span></span><span class="code" data-ice="signature">(domainItems: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is present in <code>validValue</code> domain members.</p>
 </div>
       </div>
     </td>
@@ -1001,6 +1031,35 @@
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-valueInDomain">valueInDomain</a></span></span><span class="code" data-ice="signature">(domainItems: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is present in <code>validValue</code> domain members.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -1018,11 +1077,11 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber66">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber62">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber66">validators</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {addValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber62">validators</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Add a new validator.</p>
@@ -1188,6 +1247,97 @@
       <pre class="prettyprint source-code"><code data-ice="exampleCode">between([1, 4])(1) =&gt; true
 between([1, 4])(4) =&gt; true
 between([1, 4])(6) =&gt; false</code></pre>
+    </div>
+</div>
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-codeInDomain">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">codeInDomain</span><span class="code" data-ice="signature">(domainItems: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/gisValidators.js.html#lineNumber74">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {codeInDomain} from &apos;<span><a href="file/src/gisValidators.js.html#lineNumber74">validators/src/gisValidators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is present in <code>validValue</code> domain members.
+This will check only <code>code</code> property, you can use <code>valueInDomain()</code> to search for values.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">domainItems</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;</td>
+      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">codeInDomain([
+   { code: 1, name: &apos;0.4 kV&apos; },
+   { code: 2, name: &apos;10 kV&apos; },
+   { code: 3, name: &apos;20 kV&apos; },
+   { code: 4, name: &apos;220 kV&apos; }
+])(2) =&gt; true
+codeInDomain([
+   { code: 1, name: &apos;0.4 kV&apos; },
+   { code: 2, name: &apos;10 kV&apos; },
+   { code: 3, name: &apos;20 kV&apos; },
+   { code: 4, name: &apos;220 kV&apos; }
+])(123) =&gt; false</code></pre>
     </div>
 </div>
 
@@ -1530,11 +1680,11 @@ equal(&apos;test&apos;)(&apos;test&apos;) =&gt; false</code></pre>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber35">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/index.js.html#lineNumber31">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber35">validators</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {getValidator} from &apos;<span><a href="file/src/index.js.html#lineNumber31">validators</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Get a validator function</p>
@@ -2731,9 +2881,9 @@ max(3)(&apos;asdf&apos;) =&gt; false</code></pre>
     
   <div class="example-doc" data-ice="exampleDoc">
       
-      <pre class="prettyprint source-code"><code data-ice="exampleCode">getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325758.0054, 450367.7143]) =&gt; true
-getValidator({ maxDistance: 100 })([42.678748, 23.338703], [42.678803, 23.338928], true) =&gt; true
-getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450516.2508]) =&gt; false</code></pre>
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">maxDistance(100)([325763.7233, 450358.7089], [325758.0054, 450367.7143]) =&gt; true
+maxDistance(100)([42.678748, 23.338703], [42.678803, 23.338928], true) =&gt; true
+maxDistance(100)([325763.7233, 450358.7089], [325724.1967, 450516.2508]) =&gt; false</code></pre>
     </div>
 </div>
 
@@ -3538,6 +3688,97 @@ precision(10)({ coords: { accuracy: 12 }}) =&gt; false</code></pre>
   
 
   
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-function-valueInDomain">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">valueInDomain</span><span class="code" data-ice="signature">(domainItems: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/gisValidators.js.html#lineNumber104">source</a></span></span>
+    </span>
+  </h3>
+
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {valueInDomain} from &apos;<span><a href="file/src/gisValidators.js.html#lineNumber104">validators/src/gisValidators.js</a></span>&apos;</code></pre></div>
+  
+  
+  <div data-ice="description"><p>For <strong>Number, String</strong> - checks whether a value is present in <code>validValue</code> domain members.
+This will check <code>name</code> (used by ESRI domains) or <code>value</code> property, you can use <code>codeInDomain()</code> to search for codes.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">domainItems</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></span>&lt;<span>*</span>&gt;</td>
+      <td data-ice="appendix"><ul><li>nullable: false</li></ul></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="example">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">valueInDomain([
+   { code: 1, name: &apos;0.4 kV&apos; },
+   { code: 2, name: &apos;10 kV&apos; },
+   { code: 3, name: &apos;20 kV&apos; },
+   { code: 4, name: &apos;220 kV&apos; }
+])(&apos;220 kV&apos;) =&gt; true
+valueInDomain([
+   { code: 1, name: &apos;0.4 kV&apos; },
+   { code: 2, name: &apos;10 kV&apos; },
+   { code: 3, name: &apos;20 kV&apos; },
+   { code: 4, name: &apos;220 kV&apos; }
+])(&apos;test&apos;) =&gt; false</code></pre>
+    </div>
+</div>
 
   
 

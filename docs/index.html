@@ -29,8 +29,10 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-maxDistance">maxDistance</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-codeInDomain">codeInDomain</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-maxDistance">maxDistance</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-precision">precision</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-valueInDomain">valueInDomain</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addValidator">addValidator</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValidator">getValidator</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-degreesToMeters">degreesToMeters</a></span></span></li>
@@ -62,7 +64,6 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notInValues">notInValues</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notLike">notLike</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Validator">Validator</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorFunction">ValidatorFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-ValidatorOptions">ValidatorOptions</a></span></span></li>
 </ul>
 </div>
@@ -81,10 +82,10 @@ validator2.validate(1); // =&gt; true</code>
 <h3 id="add-a-custom-validator">Add a custom validator</h3><pre><code class="lang-js"><code class="source-code prettyprint">import { addValidator } from &apos;validators&apos;;
 
 const validator = addValidator({
-  name&apos;exact&apos;,
+  name: &apos;exact&apos;,
   validValue: 1,
-  validate: (value) =&gt; {
-    return value === validValue
+  validate: value =&gt; {
+    return value === validValue;
   }
 });
 validator.validate(value);</code>
@@ -125,9 +126,13 @@ const validValue = 100; // in meters
 const p1 = [42.678748, 23.338703]; // in decimal degrees
 const p2 = [42.678803, 23.338928]; // in decimal degrees
 
-// pass true so the distance can be calculated in meters and then compared to the valid value
+// pass true so the distance can be calculated in meters before compared to the valid value
 maxDistance(validValue)(p1, p2, true);</code>
 </code></pre>
+<ul>
+<li><code>codeInDomain</code> - validates <strong>Number</strong> or <strong>String</strong>. Returns <code>true</code> if the tested value is present in the domain as a value.</li>
+<li><code>valueInDomain</code> - validates <strong>Number</strong> or <strong>String</strong>. Returns <code>true</code> if the tested value is present in the domain as a code.</li>
+</ul>
 <h2 id="tests">Tests</h2><p>Check <a href="https://github.com/bojko108/validators/tree/master/tests">tests</a> for more examples.</p>
 <h2 id="license">License</h2><p>transformations is <a href="https://github.com/bojko108/validators/tree/master/LICENSE">MIT</a> License @ bojko108</p>
 </div>

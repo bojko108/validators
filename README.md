@@ -83,6 +83,9 @@ const p2 = [42.678803, 23.338928]; // in decimal degrees
 maxDistance(validValue)(p1, p2, true);
 ```
 
+- `codeInDomain` - validates **Number** or **String**. Returns `true` if the tested value is present in the domain as a value.
+- `valueInDomain` - validates **Number** or **String**. Returns `true` if the tested value is present in the domain as a code.
+
 ## Tests
 
 Check [tests](https://github.com/bojko108/validators/tree/master/tests) for more examples.

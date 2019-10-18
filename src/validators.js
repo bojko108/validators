@@ -1,4 +1,4 @@
-export { precision, maxDistance } from './gisValidators';
+export { precision, maxDistance, valueInDomain, codeInDomain } from './gisValidators';
 
 /**
  * Checks whether a value is defined or not

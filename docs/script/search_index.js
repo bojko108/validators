@@ -12,6 +12,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "validators/src/gisvalidators.js~codeindomain",
+    "function/index.html#static-function-codeInDomain",
+    "<span>codeInDomain</span> <span class=\"search-result-import-path\">validators/src/gisValidators.js</span>",
+    "function"
+  ],
+  [
     "validators/src/validators.js~contain",
     "function/index.html#static-function-contain",
     "<span>contain</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
@@ -189,6 +195,12 @@ window.esdocSearchIndex = [
     "validators/src/math.js~toradians",
     "function/index.html#static-function-toRadians",
     "<span>toRadians</span> <span class=\"search-result-import-path\">validators/src/math.js</span>",
+    "function"
+  ],
+  [
+    "validators/src/gisvalidators.js~valueindomain",
+    "function/index.html#static-function-valueInDomain",
+    "<span>valueInDomain</span> <span class=\"search-result-import-path\">validators/src/gisValidators.js</span>",
     "function"
   ],
   [
@@ -489,12 +501,6 @@ window.esdocSearchIndex = [
     "src/index.js~validator",
     "typedef/index.html#static-typedef-Validator",
     "src/index.js~Validator",
-    "typedef"
-  ],
-  [
-    "src/index.js~validatorfunction",
-    "typedef/index.html#static-typedef-ValidatorFunction",
-    "src/index.js~ValidatorFunction",
     "typedef"
   ],
   [

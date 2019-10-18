@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/gisValidators.js",
-    "content": "import { lessThanOrEqual } from './validators';\r\nimport { getDistance, degreesToMeters } from './math';\r\n\r\n/**\r\n * For **Location** object - checks whether a value is more precise than `validValue`\r\n * @param {Number} validValue - accuracy in meters\r\n * @example\r\n * precision(10)({ accuracy: 4 }) => true\r\n * precision(10)({ accuracy: 12 }) => false\r\n * precision(10)({ coords: { accuracy: 4 }}) => true\r\n * precision(10)({ coords: { accuracy: 12 }}) => false\r\n */\r\nexport const precision = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is more precise than `validValue`\r\n   * @param {!Object} value - location object, returned by the GPS\r\n   * ```\r\n   * [value.accuracy] - accuracy in meters\r\n   * [value.coords] - coords object returned by the GPS\r\n   * [value.coords.accuracy] - accuracy in meters\r\n   * ```\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    const coords = value.coords || value;\r\n    return coords.accuracy <= validValue;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Coordinates** - distance between `p1` and `p2` is less than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325758.0054, 450367.7143]) => true\r\n * getValidator({ maxDistance: 100 })([42.678748, 23.338703], [42.678803, 23.338928], true) => true\r\n * getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450516.2508]) => false\r\n */\r\nexport const maxDistance = validValue => {\r\n  const validator = lessThanOrEqual(validValue);\r\n  /**\r\n   * @param {!Array.<Number>} p1 - coordinates of first point in format `[lon, lat]`, `[e, n]`, `[x, y]`\r\n   * @param {!Array.<Number>} p2 - coordinates of second point in format `[lon, lat]`, `[e, n]`, `[x, y]`\r\n   * @param {Boolean} [useDegrees] - if `true` the distance will be calculated in decimal degrees and then\r\n   * converted to meters, using the average latitude as a reference parallel\r\n   */\r\n  const validatorFunction = (p1, p2, useDegrees = false) => {\r\n    let distance = getDistance(p1, p2);\r\n    if (useDegrees) {\r\n      const midLatitude = (p1[1] + p2[1]) / 2;\r\n      distance = degreesToMeters(distance, midLatitude);\r\n    }\r\n    return validator(distance);\r\n  };\r\n  return validatorFunction;\r\n};\r\n",
+    "content": "import { lessThanOrEqual } from './validators';\r\nimport { getDistance, degreesToMeters } from './math';\r\n\r\n/**\r\n * For **Location** object - checks whether a value is more precise than `validValue`\r\n * @param {Number} validValue - accuracy in meters\r\n * @example\r\n * precision(10)({ accuracy: 4 }) => true\r\n * precision(10)({ accuracy: 12 }) => false\r\n * precision(10)({ coords: { accuracy: 4 }}) => true\r\n * precision(10)({ coords: { accuracy: 12 }}) => false\r\n */\r\nexport const precision = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is more precise than `validValue`\r\n   * @param {!Object} value - location object, returned by the GPS\r\n   * ```\r\n   * [value.accuracy] - accuracy in meters\r\n   * [value.coords] - coords object returned by the GPS\r\n   * [value.coords.accuracy] - accuracy in meters\r\n   * ```\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    const coords = value.coords || value;\r\n    return coords.accuracy <= validValue;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Coordinates** - distance between `p1` and `p2` is less than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * maxDistance(100)([325763.7233, 450358.7089], [325758.0054, 450367.7143]) => true\r\n * maxDistance(100)([42.678748, 23.338703], [42.678803, 23.338928], true) => true\r\n * maxDistance(100)([325763.7233, 450358.7089], [325724.1967, 450516.2508]) => false\r\n */\r\nexport const maxDistance = validValue => {\r\n  const validator = lessThanOrEqual(validValue);\r\n  /**\r\n   * @param {!Array.<Number>} p1 - coordinates of first point in format `[lon, lat]`, `[e, n]`, `[x, y]`\r\n   * @param {!Array.<Number>} p2 - coordinates of second point in format `[lon, lat]`, `[e, n]`, `[x, y]`\r\n   * @param {Boolean} [useDegrees] - if `true` the distance will be calculated in decimal degrees and then\r\n   * converted to meters, using the average latitude as a reference parallel\r\n   */\r\n  const validatorFunction = (p1, p2, useDegrees = false) => {\r\n    let distance = getDistance(p1, p2);\r\n    if (useDegrees) {\r\n      const midLatitude = (p1[1] + p2[1]) / 2;\r\n      distance = degreesToMeters(distance, midLatitude);\r\n    }\r\n    return validator(distance);\r\n  };\r\n  return validatorFunction;\r\n};\r\n/**\r\n * For **Number, String** - checks whether a value is present in `validValue` domain members.\r\n * This will check only `code` property, you can use `valueInDomain()` to search for values.\r\n * @param {!Array.<*>} domainItems\r\n * @example\r\n * codeInDomain([\r\n *    { code: 1, name: '0.4 kV' },\r\n *    { code: 2, name: '10 kV' },\r\n *    { code: 3, name: '20 kV' },\r\n *    { code: 4, name: '220 kV' }\r\n * ])(2) => true\r\n * codeInDomain([\r\n *    { code: 1, name: '0.4 kV' },\r\n *    { code: 2, name: '10 kV' },\r\n *    { code: 3, name: '20 kV' },\r\n *    { code: 4, name: '220 kV' }\r\n * ])(123) => false\r\n */\r\nexport const codeInDomain = domainItems => {\r\n  /**\r\n   * Returns `true` if `value` is present in `validValue` domain members as a code\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    return domainItems.findIndex(({ code }) => value === code) > -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - checks whether a value is present in `validValue` domain members.\r\n * This will check `name` (used by ESRI domains) or `value` property, you can use `codeInDomain()` to search for codes.\r\n * @param {!Array.<*>} domainItems\r\n * @example\r\n * valueInDomain([\r\n *    { code: 1, name: '0.4 kV' },\r\n *    { code: 2, name: '10 kV' },\r\n *    { code: 3, name: '20 kV' },\r\n *    { code: 4, name: '220 kV' }\r\n * ])('220 kV') => true\r\n * valueInDomain([\r\n *    { code: 1, name: '0.4 kV' },\r\n *    { code: 2, name: '10 kV' },\r\n *    { code: 3, name: '20 kV' },\r\n *    { code: 4, name: '220 kV' }\r\n * ])('test') => false\r\n */\r\nexport const valueInDomain = domainItems => {\r\n  /**\r\n   * Returns `true` if `value` is present in `validValue` domain members as a value\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = testedValue => {\r\n    if (!testedValue) return false;\r\n    return domainItems.findIndex(({ name, value }) => testedValue === (name || value)) > -1;\r\n  };\r\n  return validator;\r\n};\r\n",
     "static": true,
     "longname": "E:/webprojects/validators/src/gisValidators.js",
     "access": "public",
@@ -625,7 +625,7 @@
     "importStyle": "{maxDistance}",
     "description": "For **Coordinates** - distance between `p1` and `p2` is less than or equal to `validValue`",
     "examples": [
-      "getValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325758.0054, 450367.7143]) => true\ngetValidator({ maxDistance: 100 })([42.678748, 23.338703], [42.678803, 23.338928], true) => true\ngetValidator({ maxDistance: 100 })([325763.7233, 450358.7089], [325724.1967, 450516.2508]) => false"
+      "maxDistance(100)([325763.7233, 450358.7089], [325758.0054, 450367.7143]) => true\nmaxDistance(100)([42.678748, 23.338703], [42.678803, 23.338928], true) => true\nmaxDistance(100)([325763.7233, 450358.7089], [325724.1967, 450516.2508]) => false"
     ],
     "lineNumber": 38,
     "params": [
@@ -648,9 +648,81 @@
   },
   {
     "__docId__": 51,
+    "kind": "function",
+    "name": "codeInDomain",
+    "memberof": "src/gisValidators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/gisValidators.js~codeInDomain",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/gisValidators.js",
+    "importStyle": "{codeInDomain}",
+    "description": "For **Number, String** - checks whether a value is present in `validValue` domain members.\nThis will check only `code` property, you can use `valueInDomain()` to search for values.",
+    "examples": [
+      "codeInDomain([\n   { code: 1, name: '0.4 kV' },\n   { code: 2, name: '10 kV' },\n   { code: 3, name: '20 kV' },\n   { code: 4, name: '220 kV' }\n])(2) => true\ncodeInDomain([\n   { code: 1, name: '0.4 kV' },\n   { code: 2, name: '10 kV' },\n   { code: 3, name: '20 kV' },\n   { code: 4, name: '220 kV' }\n])(123) => false"
+    ],
+    "lineNumber": 74,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<*>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "domainItems",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "valueInDomain",
+    "memberof": "src/gisValidators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/gisValidators.js~valueInDomain",
+    "access": "public",
+    "export": true,
+    "importPath": "validators/src/gisValidators.js",
+    "importStyle": "{valueInDomain}",
+    "description": "For **Number, String** - checks whether a value is present in `validValue` domain members.\nThis will check `name` (used by ESRI domains) or `value` property, you can use `codeInDomain()` to search for codes.",
+    "examples": [
+      "valueInDomain([\n   { code: 1, name: '0.4 kV' },\n   { code: 2, name: '10 kV' },\n   { code: 3, name: '20 kV' },\n   { code: 4, name: '220 kV' }\n])('220 kV') => true\nvalueInDomain([\n   { code: 1, name: '0.4 kV' },\n   { code: 2, name: '10 kV' },\n   { code: 3, name: '20 kV' },\n   { code: 4, name: '220 kV' }\n])('test') => false"
+    ],
+    "lineNumber": 104,
+    "params": [
+      {
+        "nullable": false,
+        "types": [
+          "Array.<*>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "domainItems",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
     "kind": "file",
     "name": "src/index.js",
-    "content": "import * as validators from './validators';\r\n\r\n/**\r\n * @typedef Validator\r\n * @property {!String} name - name of the validator\r\n * @property {*} validValue - valid value for this validator\r\n * @property {function(value:*):Boolean} validate - validator function which takes values and validates them\r\n * @property {String} [errorMessage]\r\n */\r\n/**\r\n * @typedef ValidatorFunction - function stored in `getValidator().validate`\r\n * @param {*} value - value that needs to be validated\r\n * @return {Boolean}\r\n */\r\n/**\r\n * @typedef ValidatorOptions\r\n * @property {!String} name - name of the validator - should be unique\r\n * @property {!*} validValue - valid value for this validator\r\n * @property {String} [errorMessage]\r\n */\r\n\r\n/**\r\n * Get a validator function\r\n * @param {!ValidatorOptions} options - defines validator options\r\n * @return {Validator} validator\r\n * @throws {Error} when `options` parameter is not defined\r\n * @throws {Error} when `options.name` parameter is not defined\r\n * @throws {Error} when there is no validation function defined\r\n * @example\r\n * getValidator({ name: 'required' }) => `required` validator\r\n * getValidator({ name: 'precision', validValue: 4 }) => `precision` validator with accuracy 4 meters\r\n * getValidator({ name: 'between', validValue: [1, 4] }) => `between` validator with valid range [1, 4]\r\n * getValidator({ name: 'maxDistance' validValue: 100 }) => `maxDistance` validator with maxumum distance 100 meters\r\n */\r\nexport const getValidator = options => {\r\n  if (!options) {\r\n    throw '\"options\" must be an object. For example: { name: \"required\" }, { name: \"precision\", validValue: 4 }, { name: \"between\", validValue: [1, 4] }, { name: \"maxDistance\", validValue: 100 }';\r\n  }\r\n  const { name, validValue, errorMessage } = options;\r\n  let validate = options.validate;\r\n  if (!name) {\r\n    const validNames = Object.keys(validators).join('\",\"');\r\n    throw `\"options.name\" is required and should be one of: ${validNames}`;\r\n  }\r\n  if (!validate) {\r\n    const func = validators[name];\r\n    if (!func) {\r\n      throw `Validator \"${name}\" could not be found! Try to define it with: addValidator({ name: \"${name}\", validValue: \"someValidValue\", validate: (value) => { return value === \"someValidValue\" }})`;\r\n    }\r\n    validate = func(validValue);\r\n  }\r\n  return { name, validValue, errorMessage, validate };\r\n};\r\n\r\n/**\r\n * Add a new validator.\r\n * @param {!Validator} options - options for the custom validator\r\n * @return {Validator} validator\r\n * @throws {Error} when `options` parameter is not defined\r\n * @throws {Error} when `options.name` parameter is not defined\r\n * @throws {Error} when a validator already exists\r\n * @throws {Error} when `options.validate` is not a function\r\n * @example\r\n * addValidator({ name: \"exact\", validValue: 1, validate: (value) => value === 1 }) => defines and returns a new validator with name `exact`\r\n */\r\nexport const addValidator = options => {\r\n  if (!options) {\r\n    throw '\"options\" must be an object. For example: { name: \"someName\", validValue: \"someValidValue\", validate: (value) => { return value === \"someValidValue\" }}';\r\n  }\r\n  const { name, validValue, errorMessage, validate } = options;\r\n  if (!name) {\r\n    throw '\"options.name\" is required';\r\n  }\r\n  if (name in validators) {\r\n    throw `Validator \"${name}\" already exists! You can call it with: getValidator({ name: \"${name}\", validValue: \"someValidValue\" })`;\r\n  }\r\n  if (!validate || !validators.isFunction(validate)) {\r\n    throw '\"options.validate\" must be a function';\r\n  }\r\n  validators[name] = validate;\r\n  return { name, validValue, errorMessage, validate };\r\n};\r\n",
+    "content": "import * as validators from './validators';\r\n\r\n/**\r\n * @typedef Validator\r\n * @property {!String} name - name of the validator\r\n * @property {*} validValue - valid value for this validator\r\n * @property {function(value:*):Boolean} validate - validator function which takes values and validates them\r\n * @property {String} [errorMessage]\r\n */\r\n\r\n/**\r\n * @typedef ValidatorOptions\r\n * @property {!String} name - name of the validator - should be unique\r\n * @property {!*} validValue - valid value for this validator\r\n * @property {String} [errorMessage]\r\n */\r\n\r\n/**\r\n * Get a validator function\r\n * @param {!ValidatorOptions} options - defines validator options\r\n * @return {Validator} validator\r\n * @throws {Error} when `options` parameter is not defined\r\n * @throws {Error} when `options.name` parameter is not defined\r\n * @throws {Error} when there is no validation function defined\r\n * @example\r\n * getValidator({ name: 'required' }) => `required` validator\r\n * getValidator({ name: 'precision', validValue: 4 }) => `precision` validator with accuracy 4 meters\r\n * getValidator({ name: 'between', validValue: [1, 4] }) => `between` validator with valid range [1, 4]\r\n * getValidator({ name: 'maxDistance' validValue: 100 }) => `maxDistance` validator with maxumum distance 100 meters\r\n */\r\nexport const getValidator = options => {\r\n  if (!options) {\r\n    throw '\"options\" must be an object. For example: { name: \"required\" }, { name: \"precision\", validValue: 4 }, { name: \"between\", validValue: [1, 4] }, { name: \"maxDistance\", validValue: 100 }';\r\n  }\r\n  const { name, validValue, errorMessage } = options;\r\n  let validate = options.validate;\r\n  if (!name) {\r\n    const validNames = Object.keys(validators).join('\",\"');\r\n    throw `\"options.name\" is required and should be one of: \"${validNames}\"`;\r\n  }\r\n  if (!validate) {\r\n    const func = validators[name];\r\n    if (!func) {\r\n      throw `Validator \"${name}\" could not be found! Try to define it with: addValidator({ name: \"${name}\", validValue: \"someValidValue\", validate: (value) => { return value === \"someValidValue\" }})`;\r\n    }\r\n    validate = func(validValue);\r\n  }\r\n  return { name, validValue, errorMessage, validate };\r\n};\r\n\r\n/**\r\n * Add a new validator.\r\n * @param {!Validator} options - options for the custom validator\r\n * @return {Validator} validator\r\n * @throws {Error} when `options` parameter is not defined\r\n * @throws {Error} when `options.name` parameter is not defined\r\n * @throws {Error} when a validator already exists\r\n * @throws {Error} when `options.validate` is not a function\r\n * @example\r\n * addValidator({ name: \"exact\", validValue: 1, validate: (value) => value === 1 }) => defines and returns a new validator with name `exact`\r\n */\r\nexport const addValidator = options => {\r\n  if (!options) {\r\n    throw '\"options\" must be an object. For example: { name: \"someName\", validValue: \"someValidValue\", validate: (value) => { return value === \"someValidValue\" }}';\r\n  }\r\n  const { name, validValue, errorMessage, validate } = options;\r\n  if (!name) {\r\n    throw '\"options.name\" is required';\r\n  }\r\n  if (name in validators) {\r\n    throw `Validator \"${name}\" already exists! You can call it with: getValidator({ name: \"${name}\", validValue: \"someValidValue\" })`;\r\n  }\r\n  if (!validate || !validators.isFunction(validate)) {\r\n    throw '\"options.validate\" must be a function';\r\n  }\r\n  validators[name] = validate;\r\n  return { name, validValue, errorMessage, validate };\r\n};\r\n",
     "static": true,
     "longname": "E:/webprojects/validators/src/index.js",
     "access": "public",
@@ -658,7 +730,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 52,
+    "__docId__": 54,
     "kind": "typedef",
     "name": "Validator",
     "memberof": "src/index.js",
@@ -717,44 +789,7 @@
     }
   },
   {
-    "__docId__": 53,
-    "kind": "typedef",
-    "name": "ValidatorFunction",
-    "memberof": "src/index.js",
-    "static": true,
-    "longname": "src/index.js~ValidatorFunction",
-    "access": "public",
-    "description": "",
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "*"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "value",
-        "description": "value that needs to be validated"
-      }
-    ],
-    "return": {
-      "nullable": null,
-      "types": [
-        "Boolean"
-      ],
-      "spread": false,
-      "description": ""
-    },
-    "type": {
-      "types": [
-        "*"
-      ],
-      "optional": false,
-      "name": "ValidatorFunction"
-    }
-  },
-  {
-    "__docId__": 54,
+    "__docId__": 55,
     "kind": "typedef",
     "name": "ValidatorOptions",
     "memberof": "src/index.js",
@@ -803,7 +838,7 @@
     }
   },
   {
-    "__docId__": 55,
+    "__docId__": 56,
     "kind": "function",
     "name": "getValidator",
     "memberof": "src/index.js",
@@ -819,7 +854,7 @@
     "examples": [
       "getValidator({ name: 'required' }) => `required` validator\ngetValidator({ name: 'precision', validValue: 4 }) => `precision` validator with accuracy 4 meters\ngetValidator({ name: 'between', validValue: [1, 4] }) => `between` validator with valid range [1, 4]\ngetValidator({ name: 'maxDistance' validValue: 100 }) => `maxDistance` validator with maxumum distance 100 meters"
     ],
-    "lineNumber": 35,
+    "lineNumber": 31,
     "params": [
       {
         "nullable": false,
@@ -862,7 +897,7 @@
     ]
   },
   {
-    "__docId__": 56,
+    "__docId__": 57,
     "kind": "function",
     "name": "addValidator",
     "memberof": "src/index.js",
@@ -878,7 +913,7 @@
     "examples": [
       "addValidator({ name: \"exact\", validValue: 1, validate: (value) => value === 1 }) => defines and returns a new validator with name `exact`"
     ],
-    "lineNumber": 66,
+    "lineNumber": 62,
     "params": [
       {
         "nullable": false,
@@ -927,7 +962,7 @@
     ]
   },
   {
-    "__docId__": 57,
+    "__docId__": 58,
     "kind": "file",
     "name": "src/math.js",
     "content": "/**\r\n * Convert a value from radians to degrees.\r\n * @param {!Number} radians - value in radians\r\n * @return {Number}\r\n */\r\nexport const toDegrees = radians => {\r\n  return radians * (180 / Math.PI);\r\n};\r\n/**\r\n * Conver a value from degrees to radians.\r\n * @param {!Number} degrees - value in decimal degrees\r\n * @return {Number}\r\n */\r\nexport const toRadians = degrees => {\r\n  return degrees * (Math.PI / 180);\r\n};\r\n\r\n/**\r\n * Calculates the Eucledian distance between two points.\r\n * @param {!Array.<Number>} p1\r\n * @param {!Array.<Number>} p2\r\n * @return {Number}\r\n */\r\nexport const getDistance = (p1, p2) => {\r\n  const dx = p2[0] - p1[0],\r\n    dy = p2[1] - p1[1];\r\n  return Math.sqrt(dx * dx + dy * dy);\r\n};\r\n\r\n/**\r\n * Convert distance from meters to decimal degrees\r\n * @public\r\n * @param {!Number} meters - distance in meters\r\n * @param {Number} [latitude=0] - current latitude, default is 0 - the equator\r\n * @return {Number}\r\n */\r\nexport const metersToDegrees = (meters, latitude = 0) => {\r\n  return meters / (111.32 * 1000 * Math.cos(toRadians(latitude)));\r\n};\r\n\r\n/**\r\n * Convert distance from decimal degrees to meters\r\n * @public\r\n * @param {!Number} degrees - distance in decimal degrees\r\n * @param {Number} [latitude=0] - latitude of the reference parallel, default is 0 - the equator\r\n * @return {Number}\r\n */\r\nexport const degreesToMeters = (degrees, latitude = 0) => {\r\n  return degrees * (111.32 * 1000 * Math.cos(toRadians(latitude)));\r\n};\r\n",
@@ -938,7 +973,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 58,
+    "__docId__": 59,
     "kind": "function",
     "name": "toDegrees",
     "memberof": "src/math.js",
@@ -974,7 +1009,7 @@
     }
   },
   {
-    "__docId__": 59,
+    "__docId__": 60,
     "kind": "function",
     "name": "toRadians",
     "memberof": "src/math.js",
@@ -1010,7 +1045,7 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 61,
     "kind": "function",
     "name": "getDistance",
     "memberof": "src/math.js",
@@ -1056,7 +1091,7 @@
     }
   },
   {
-    "__docId__": 61,
+    "__docId__": 62,
     "kind": "function",
     "name": "metersToDegrees",
     "memberof": "src/math.js",
@@ -1104,7 +1139,7 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 63,
     "kind": "function",
     "name": "degreesToMeters",
     "memberof": "src/math.js",
@@ -1152,10 +1187,10 @@
     }
   },
   {
-    "__docId__": 63,
+    "__docId__": 64,
     "kind": "file",
     "name": "src/validators.js",
-    "content": "export { precision, maxDistance } from './gisValidators';\r\n\r\n/**\r\n * Checks whether a value is defined or not\r\n * @example\r\n * isDefined()(4) => true\r\n * isDefined()(null) => false\r\n * isDefined()('') => false\r\n */\r\nexport const isDefined = () => {\r\n  /**\r\n   * Returns `true` if `value` is not `undefined` or `null`.\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (isBoolean()(value)) {\r\n      return true;\r\n    }\r\n    if (isNumber()(value)) {\r\n      return true;\r\n    }\r\n    if (isString()(value)) {\r\n      return true;\r\n    }\r\n    return !!value;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - checks whether value's length is greater than or equal to `validValue`\r\n * @param {!Number} validValue - minimum length value\r\n * @example\r\n * min(3)('as') => false\r\n * min(3)('asd') => true\r\n * min(3)('asdf') => true\r\n */\r\nexport const min = validValue => {\r\n  /**\r\n   * Returns `true` if `value`'s length is greater than or equal to `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => value.length >= validValue;\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - checks whether value's length is greater than or equal to `validValue`\r\n * @param {!Number} validValue - maximum length value\r\n * @example\r\n * max(3)('as') => true\r\n * max(3)('asd') => true\r\n * max(3)('asdf') => false\r\n */\r\nexport const max = validValue => {\r\n  /**\r\n   * Returns `true` if `value`'s length is greater than or equal to `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => value.length <= validValue;\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - checks whether a value contains `validValue`\r\n * @param {*} validValue\r\n * @example\r\n * contain('test')('testA') => true\r\n * contain('test')('B test') => true\r\n * contain('test')([1, 'test'])) => true\r\n * contain('test')('asd') => false\r\n */\r\nexport const contain = validValue => {\r\n  /**\r\n   * Returns `true` if `value` contains `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return value ? value.indexOf(validValue) > -1 : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Array**, **String** - checks whether a value deos not contain `validValue`\r\n * @param {*} validValue\r\n * @example\r\n * notContain('test'))('testA') => false\r\n * notContain('test'))('B test') => false\r\n * notContain('test')([1, 'test'])) => false\r\n * notContain('test'))('asd') => true\r\n */\r\nexport const notContain = validValue => {\r\n  /**\r\n   * Returns `true` if `value` deos not contain `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return value ? value.indexOf(validValue) === -1 : false;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **String** - checks whether a value is equal to `validValue`\r\n * @param {String} validValue\r\n * @example\r\n * like('test')('test') => true\r\n * like('test')('Test') => false\r\n * like('test')('asdasd') => false\r\n */\r\nexport const like = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is equal to `validValue`\r\n   * @param {String} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value && validValue) return false;\r\n    if (value && !validValue) return false;\r\n    if (!value && !validValue) return true;\r\n    return value ? value.toString() === validValue.toString() : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **String** - checks whether a value is not equal to `validValue`\r\n * @param {String} validValue\r\n * @example\r\n * notLike('test')('asd') => true\r\n * notLike('test')('Test') => true\r\n * notLike('test')('test') => false\r\n */\r\nexport const notLike = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not equal to `validValue`\r\n   * @param {String} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value && validValue) return false;\r\n    if (value && !validValue) return false;\r\n    if (!value && !validValue) return true;\r\n    return value ? value.toString() !== validValue.toString() : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Number** - checks whether a value is equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * equal(2)(2) => true\r\n * equal(2)(22) => false\r\n * equal('test')('test') => false\r\n */\r\nexport const equal = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(validValue) === Number(value);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is not equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * notEqual(1)(2) => true\r\n * notEqual(1)(1) => false\r\n * notEqual('test')('test') => true\r\n * notEqual('test')('asdd') => true\r\n */\r\nexport const notEqual = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) !== Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is in the range of `validValue`\r\n * @param {!Array.<Number>} validValue - as range array\r\n * @example\r\n * between([1, 4])(1) => true\r\n * between([1, 4])(4) => true\r\n * between([1, 4])(6) => false\r\n */\r\nexport const between = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is in range of `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => Number(validValue[0]) <= Number(value) && Number(validValue[1]) >= Number(value);\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Number** - checks whether a value is not in the range of `validValue`\r\n * @param {!Array.<Number>} validValue - as range array\r\n * @example\r\n * notBetween([1, 4])(1) => false\r\n * notBetween([1, 4])(2) => false\r\n * notBetween([1, 4])(4) => false\r\n * notBetween([1, 4])(6) => true\r\n */\r\nexport const notBetween = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not in the range of `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => Number(validValue[0]) > Number(value) || Number(validValue[1]) < Number(value);\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - checks whether a value is in `validValue` array\r\n * @param {!Array.<*>} validValue\r\n * @example\r\n * inValues([1, 2, 3])(1) => true\r\n * inValues([1, 2, 3])(2) => true\r\n * inValues([1, 2, 3])(3) => true\r\n * inValues([1, 2, 3])(4) => false\r\n */\r\nexport const inValues = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is in `validValue` array\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    const valuesIn = validValue.map(v => v.toString());\r\n    return valuesIn.indexOf(value.toString()) > -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - checks whether a value is not in `validValue` array\r\n * @param {!Array.<*>} validValue\r\n * @example\r\n * notInValues([1, 2, 3])(4) => true\r\n * notInValues([1, 2, 3])(3) => false\r\n * notInValues([1, 2, 3])(2) => false\r\n * notInValues([1, 2, 3])(1) => false\r\n */\r\nexport const notInValues = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not in `validValue` array\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    const valuesNotIn = validValue.map(v => v.toString());\r\n    return valuesNotIn.indexOf(value.toString()) === -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is greater than `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * greaterThan(2)(12) => true\r\n * greaterThan(2)(2) => false\r\n * greaterThan(2)(1) => false\r\n */\r\nexport const greaterThan = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is greater than `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) > Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is greater than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * greaterThanOrEqual(2)(2) => true\r\n * greaterThanOrEqual(2)(12) => true\r\n * greaterThanOrEqual(2)(1) => false\r\n */\r\nexport const greaterThanOrEqual = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is greater than or equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) >= Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is less than `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * lessThan(2)(1) => true\r\n * lessThan(2)(0) => true\r\n * lessThan(2)(2) => false\r\n */\r\nexport const lessThan = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is less than `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) < Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is less than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * lessThanOrEqual(2)(2) => true\r\n * lessThanOrEqual(2)(1) => true\r\n * lessThanOrEqual(2)(22) => false\r\n */\r\nexport const lessThanOrEqual = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is less than or equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) <= Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is from type `string`\r\n * @example\r\n * isString()('test') => true\r\n * isString()('2') => true\r\n * isString()('false') => true\r\n * isString()(false) => false\r\n * isString()(1) => false\r\n * isString()() => false\r\n */\r\nexport const isString = () => {\r\n  /**\r\n   * Returns `true` if `value` is from type `string`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'string';\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is an `array`\r\n * @example\r\n * isArray()([]) => true\r\n * isArray()(['2']) => true\r\n * isArray()(false) => false\r\n * isArray()(1) => false\r\n * isArray()({}) => false\r\n * isArray()() => false\r\n */\r\nexport const isArray = () => {\r\n  /**\r\n   * Returns `true` if `value` is an `array`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return {}.toString.call(value) === '[object Array]';\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is from type `number`\r\n * @example\r\n * isNumber()(1) => true\r\n * isNumber()(-1) => true\r\n * isNumber()('1') => false\r\n * isNumber()() => false\r\n * isNumber()({}) => false\r\n * isNumber()(false) => false\r\n */\r\nexport const isNumber = () => {\r\n  /**\r\n   * Returns `true` if `value` is from type `number`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'number' && !isNaN(value);\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is an integer `number`\r\n * @example\r\n * isInteger()(1) => true\r\n * isInteger()(-1) => true\r\n * isInteger()(-2.3) => false\r\n * isInteger()(3.1415926536) => false\r\n * isInteger()({}) => false\r\n * isInteger()(false) => false\r\n */\r\nexport const isInteger = () => {\r\n  /**\r\n   * Returns `true` if `value` is an integer `number`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return isNumber()(value) && value % 1 === 0;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is from type `boolean`\r\n * @example\r\n * isBoolean()(true) => true\r\n * isBoolean()(false) => true\r\n * isBoolean()('true') => false\r\n * isBoolean()() => false\r\n */\r\nexport const isBoolean = () => {\r\n  /**\r\n   * Returns `true` if `value` is from type `boolean`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'boolean';\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is `function`\r\n * @example\r\n * isFunction()(a => a * a) => true\r\n * isFunction()(true) => false\r\n * isFunction()({}) => false\r\n */\r\nexport const isFunction = () => {\r\n  /**\r\n   * Рeturns `true` if `value` is `function`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'function';\r\n  };\r\n  return validator;\r\n};\r\n",
+    "content": "export { precision, maxDistance, valueInDomain, codeInDomain } from './gisValidators';\r\n\r\n/**\r\n * Checks whether a value is defined or not\r\n * @example\r\n * isDefined()(4) => true\r\n * isDefined()(null) => false\r\n * isDefined()('') => false\r\n */\r\nexport const isDefined = () => {\r\n  /**\r\n   * Returns `true` if `value` is not `undefined` or `null`.\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (isBoolean()(value)) {\r\n      return true;\r\n    }\r\n    if (isNumber()(value)) {\r\n      return true;\r\n    }\r\n    if (isString()(value)) {\r\n      return true;\r\n    }\r\n    return !!value;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - checks whether value's length is greater than or equal to `validValue`\r\n * @param {!Number} validValue - minimum length value\r\n * @example\r\n * min(3)('as') => false\r\n * min(3)('asd') => true\r\n * min(3)('asdf') => true\r\n */\r\nexport const min = validValue => {\r\n  /**\r\n   * Returns `true` if `value`'s length is greater than or equal to `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => value.length >= validValue;\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - checks whether value's length is greater than or equal to `validValue`\r\n * @param {!Number} validValue - maximum length value\r\n * @example\r\n * max(3)('as') => true\r\n * max(3)('asd') => true\r\n * max(3)('asdf') => false\r\n */\r\nexport const max = validValue => {\r\n  /**\r\n   * Returns `true` if `value`'s length is greater than or equal to `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => value.length <= validValue;\r\n  return validator;\r\n};\r\n/**\r\n * For **Array**, **String** - checks whether a value contains `validValue`\r\n * @param {*} validValue\r\n * @example\r\n * contain('test')('testA') => true\r\n * contain('test')('B test') => true\r\n * contain('test')([1, 'test'])) => true\r\n * contain('test')('asd') => false\r\n */\r\nexport const contain = validValue => {\r\n  /**\r\n   * Returns `true` if `value` contains `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return value ? value.indexOf(validValue) > -1 : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Array**, **String** - checks whether a value deos not contain `validValue`\r\n * @param {*} validValue\r\n * @example\r\n * notContain('test'))('testA') => false\r\n * notContain('test'))('B test') => false\r\n * notContain('test')([1, 'test'])) => false\r\n * notContain('test'))('asd') => true\r\n */\r\nexport const notContain = validValue => {\r\n  /**\r\n   * Returns `true` if `value` deos not contain `validValue`\r\n   * @param {!(Array.<*>|String)} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return value ? value.indexOf(validValue) === -1 : false;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **String** - checks whether a value is equal to `validValue`\r\n * @param {String} validValue\r\n * @example\r\n * like('test')('test') => true\r\n * like('test')('Test') => false\r\n * like('test')('asdasd') => false\r\n */\r\nexport const like = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is equal to `validValue`\r\n   * @param {String} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value && validValue) return false;\r\n    if (value && !validValue) return false;\r\n    if (!value && !validValue) return true;\r\n    return value ? value.toString() === validValue.toString() : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **String** - checks whether a value is not equal to `validValue`\r\n * @param {String} validValue\r\n * @example\r\n * notLike('test')('asd') => true\r\n * notLike('test')('Test') => true\r\n * notLike('test')('test') => false\r\n */\r\nexport const notLike = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not equal to `validValue`\r\n   * @param {String} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value && validValue) return false;\r\n    if (value && !validValue) return false;\r\n    if (!value && !validValue) return true;\r\n    return value ? value.toString() !== validValue.toString() : false;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Number** - checks whether a value is equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * equal(2)(2) => true\r\n * equal(2)(22) => false\r\n * equal('test')('test') => false\r\n */\r\nexport const equal = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(validValue) === Number(value);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is not equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * notEqual(1)(2) => true\r\n * notEqual(1)(1) => false\r\n * notEqual('test')('test') => true\r\n * notEqual('test')('asdd') => true\r\n */\r\nexport const notEqual = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) !== Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is in the range of `validValue`\r\n * @param {!Array.<Number>} validValue - as range array\r\n * @example\r\n * between([1, 4])(1) => true\r\n * between([1, 4])(4) => true\r\n * between([1, 4])(6) => false\r\n */\r\nexport const between = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is in range of `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => Number(validValue[0]) <= Number(value) && Number(validValue[1]) >= Number(value);\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Number** - checks whether a value is not in the range of `validValue`\r\n * @param {!Array.<Number>} validValue - as range array\r\n * @example\r\n * notBetween([1, 4])(1) => false\r\n * notBetween([1, 4])(2) => false\r\n * notBetween([1, 4])(4) => false\r\n * notBetween([1, 4])(6) => true\r\n */\r\nexport const notBetween = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not in the range of `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => Number(validValue[0]) > Number(value) || Number(validValue[1]) < Number(value);\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - checks whether a value is in `validValue` array\r\n * @param {!Array.<*>} validValue\r\n * @example\r\n * inValues([1, 2, 3])(1) => true\r\n * inValues([1, 2, 3])(2) => true\r\n * inValues([1, 2, 3])(3) => true\r\n * inValues([1, 2, 3])(4) => false\r\n */\r\nexport const inValues = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is in `validValue` array\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    const valuesIn = validValue.map(v => v.toString());\r\n    return valuesIn.indexOf(value.toString()) > -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number, String** - checks whether a value is not in `validValue` array\r\n * @param {!Array.<*>} validValue\r\n * @example\r\n * notInValues([1, 2, 3])(4) => true\r\n * notInValues([1, 2, 3])(3) => false\r\n * notInValues([1, 2, 3])(2) => false\r\n * notInValues([1, 2, 3])(1) => false\r\n */\r\nexport const notInValues = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is not in `validValue` array\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    if (!value) return false;\r\n    const valuesNotIn = validValue.map(v => v.toString());\r\n    return valuesNotIn.indexOf(value.toString()) === -1;\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is greater than `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * greaterThan(2)(12) => true\r\n * greaterThan(2)(2) => false\r\n * greaterThan(2)(1) => false\r\n */\r\nexport const greaterThan = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is greater than `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) > Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is greater than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * greaterThanOrEqual(2)(2) => true\r\n * greaterThanOrEqual(2)(12) => true\r\n * greaterThanOrEqual(2)(1) => false\r\n */\r\nexport const greaterThanOrEqual = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is greater than or equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) >= Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is less than `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * lessThan(2)(1) => true\r\n * lessThan(2)(0) => true\r\n * lessThan(2)(2) => false\r\n */\r\nexport const lessThan = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is less than `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) < Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n/**\r\n * For **Number** - checks whether a value is less than or equal to `validValue`\r\n * @param {!Number} validValue\r\n * @example\r\n * lessThanOrEqual(2)(2) => true\r\n * lessThanOrEqual(2)(1) => true\r\n * lessThanOrEqual(2)(22) => false\r\n */\r\nexport const lessThanOrEqual = validValue => {\r\n  /**\r\n   * Returns `true` if `value` is less than or equal to `validValue`\r\n   * @param {!Number} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return Number(value) <= Number(validValue);\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is from type `string`\r\n * @example\r\n * isString()('test') => true\r\n * isString()('2') => true\r\n * isString()('false') => true\r\n * isString()(false) => false\r\n * isString()(1) => false\r\n * isString()() => false\r\n */\r\nexport const isString = () => {\r\n  /**\r\n   * Returns `true` if `value` is from type `string`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'string';\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is an `array`\r\n * @example\r\n * isArray()([]) => true\r\n * isArray()(['2']) => true\r\n * isArray()(false) => false\r\n * isArray()(1) => false\r\n * isArray()({}) => false\r\n * isArray()() => false\r\n */\r\nexport const isArray = () => {\r\n  /**\r\n   * Returns `true` if `value` is an `array`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return {}.toString.call(value) === '[object Array]';\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is from type `number`\r\n * @example\r\n * isNumber()(1) => true\r\n * isNumber()(-1) => true\r\n * isNumber()('1') => false\r\n * isNumber()() => false\r\n * isNumber()({}) => false\r\n * isNumber()(false) => false\r\n */\r\nexport const isNumber = () => {\r\n  /**\r\n   * Returns `true` if `value` is from type `number`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'number' && !isNaN(value);\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is an integer `number`\r\n * @example\r\n * isInteger()(1) => true\r\n * isInteger()(-1) => true\r\n * isInteger()(-2.3) => false\r\n * isInteger()(3.1415926536) => false\r\n * isInteger()({}) => false\r\n * isInteger()(false) => false\r\n */\r\nexport const isInteger = () => {\r\n  /**\r\n   * Returns `true` if `value` is an integer `number`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return isNumber()(value) && value % 1 === 0;\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is from type `boolean`\r\n * @example\r\n * isBoolean()(true) => true\r\n * isBoolean()(false) => true\r\n * isBoolean()('true') => false\r\n * isBoolean()() => false\r\n */\r\nexport const isBoolean = () => {\r\n  /**\r\n   * Returns `true` if `value` is from type `boolean`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'boolean';\r\n  };\r\n  return validator;\r\n};\r\n\r\n/**\r\n * For **Any** - checks whether a value is `function`\r\n * @example\r\n * isFunction()(a => a * a) => true\r\n * isFunction()(true) => false\r\n * isFunction()({}) => false\r\n */\r\nexport const isFunction = () => {\r\n  /**\r\n   * Рeturns `true` if `value` is `function`\r\n   * @param {*} value - to be checked\r\n   * @return {Boolean}\r\n   */\r\n  const validator = value => {\r\n    return typeof value === 'function';\r\n  };\r\n  return validator;\r\n};\r\n",
     "static": true,
     "longname": "E:/webprojects/validators/src/validators.js",
     "access": "public",
@@ -1163,7 +1198,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 64,
+    "__docId__": 65,
     "kind": "function",
     "name": "isDefined",
     "memberof": "src/validators.js",
@@ -1188,7 +1223,7 @@
     }
   },
   {
-    "__docId__": 65,
+    "__docId__": 66,
     "kind": "function",
     "name": "min",
     "memberof": "src/validators.js",
@@ -1224,7 +1259,7 @@
     }
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "function",
     "name": "max",
     "memberof": "src/validators.js",
@@ -1260,7 +1295,7 @@
     }
   },
   {
-    "__docId__": 67,
+    "__docId__": 68,
     "kind": "function",
     "name": "contain",
     "memberof": "src/validators.js",
@@ -1296,7 +1331,7 @@
     }
   },
   {
-    "__docId__": 68,
+    "__docId__": 69,
     "kind": "function",
     "name": "notContain",
     "memberof": "src/validators.js",
@@ -1332,7 +1367,7 @@
     }
   },
   {
-    "__docId__": 69,
+    "__docId__": 70,
     "kind": "function",
     "name": "like",
     "memberof": "src/validators.js",
@@ -1368,7 +1403,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 71,
     "kind": "function",
     "name": "notLike",
     "memberof": "src/validators.js",
@@ -1404,7 +1439,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "function",
     "name": "equal",
     "memberof": "src/validators.js",
@@ -1440,7 +1475,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "function",
     "name": "notEqual",
     "memberof": "src/validators.js",
@@ -1476,7 +1511,7 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "function",
     "name": "between",
     "memberof": "src/validators.js",
@@ -1512,7 +1547,7 @@
     }
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "function",
     "name": "notBetween",
     "memberof": "src/validators.js",
@@ -1548,7 +1583,7 @@
     }
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "function",
     "name": "inValues",
     "memberof": "src/validators.js",
@@ -1584,7 +1619,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 77,
     "kind": "function",
     "name": "notInValues",
     "memberof": "src/validators.js",
@@ -1620,7 +1655,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 78,
     "kind": "function",
     "name": "greaterThan",
     "memberof": "src/validators.js",
@@ -1656,7 +1691,7 @@
     }
   },
   {
-    "__docId__": 78,
+    "__docId__": 79,
     "kind": "function",
     "name": "greaterThanOrEqual",
     "memberof": "src/validators.js",
@@ -1692,7 +1727,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 80,
     "kind": "function",
     "name": "lessThan",
     "memberof": "src/validators.js",
@@ -1728,7 +1763,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 81,
     "kind": "function",
     "name": "lessThanOrEqual",
     "memberof": "src/validators.js",
@@ -1764,7 +1799,7 @@
     }
   },
   {
-    "__docId__": 81,
+    "__docId__": 82,
     "kind": "function",
     "name": "isString",
     "memberof": "src/validators.js",
@@ -1789,7 +1824,7 @@
     }
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "function",
     "name": "isArray",
     "memberof": "src/validators.js",
@@ -1814,7 +1849,7 @@
     }
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
     "kind": "function",
     "name": "isNumber",
     "memberof": "src/validators.js",
@@ -1839,7 +1874,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 85,
     "kind": "function",
     "name": "isInteger",
     "memberof": "src/validators.js",
@@ -1864,7 +1899,7 @@
     }
   },
   {
-    "__docId__": 85,
+    "__docId__": 86,
     "kind": "function",
     "name": "isBoolean",
     "memberof": "src/validators.js",
@@ -1889,7 +1924,7 @@
     }
   },
   {
-    "__docId__": 86,
+    "__docId__": 87,
     "kind": "function",
     "name": "isFunction",
     "memberof": "src/validators.js",
@@ -1915,7 +1950,7 @@
   },
   {
     "kind": "index",
-    "content": "# Validators\r\n\r\nSet of custom validation functions. You can read the documentation here: [https://bojko108.github.io/validators/](https://bojko108.github.io/validators/)\r\n\r\n## How to install\r\n\r\n```\r\nyarn add bojko108/validators\r\n```\r\n\r\n## How to use\r\n\r\n### Get a validator\r\n\r\n```js\r\nimport { getValidator } from 'validators';\r\n\r\nconst validator1 = getValidator({ name: 'precision' validValue: 10 });\r\nvalidator1.validate({ coords: { accuracy: 4 } }); // => true\r\n\r\nconst validator2 = getValidator({ name: 'between', validValue: [1, 4] });\r\nvalidator2.validate(1); // => true\r\n```\r\n\r\n### Add a custom validator\r\n\r\n```js\r\nimport { addValidator } from 'validators';\r\n\r\nconst validator = addValidator({\r\n  name'exact',\r\n  validValue: 1,\r\n  validate: (value) => {\r\n    return value === validValue\r\n  }\r\n});\r\nvalidator.validate(value);\r\n```\r\n\r\n## Validators\r\n\r\nHere is a list of all predefined validators. You can use them by calling `getValidator({ name: <validatorName> })`. All custom validators added by `addValidator()` will be available in `getValidator()`. An error is thrown if a validator already exists and you try to redefine it with `addValidator()`.\r\n\r\n### Validators\r\n\r\n- `isDefined` - returns `true` if the value is defined. Returns `false` for `undefined` and `null`.\r\n- `isString` - returns `true` if the value is `string`.\r\n- `isArray` - returns `true` if the value type is `array`.\r\n- `isNumber` - returns `true` if the value type is `number`.\r\n- `isInteger` - returns `true` if the value is an integer `number`.\r\n- `isBoolean` - returns `true` if the value type is `boolean`.\r\n- `isFunction` - returns `true` if the value type is `function`.\r\n- `min` - validates length of **Array** or **String**. Returns `true` if the length is greater than or equal to the valid value.\r\n- `max` - validates length of **Array** or **String**. Returns `true` if the length is less than or equal to the valid value.\r\n- `contain` - validates **Array** or **String**. Returns `true` if the valid value contains tested value. Opposite of `notContain`.\r\n- `notContain` - validates **Array** or **String**. Returns `true` if the valid value does not contain tested value. Opposite of `contain`.\r\n- `like` - validates **String**. Returns `true` if the tested value is equal to the valid value. Opposite of `notLike`.\r\n- `notLike` - validates **String**. Returns `true` if the tested value is not equal to the valid value. Opposite of `like`.\r\n- `equal` - validates **Number**. Returns `true` if the tested value is equal to the valid value. Opposite of `notEqual`.\r\n- `notEqual` - validates **String**. Returns `true` if the tested value is not equal to the valid value. Opposite of `equal`.\r\n- `between` - validates **Number**. Returns `true` if the tested value is in the range of the valid value. Opposite of `notBetween`.\r\n- `notBetween` - validates strings. Returns `true` if the tested value is not in the range of the valid value. Opposite of `between`.\r\n- `inValues` - validates **Number** or **String**. Returns `true` if the tested value is present in valid value array. Opposite of `notInValues`.\r\n- `notInValues` - validates **Number** or **String**. Returns `true` if the tested value is not present in valid value array. Opposite of `inValues`.\r\n- `greaterThan` - validates **Number**. Returns `true` if the tested value is greater than the valid value. Opposite of `lessThan`.\r\n- `greaterThanOrEqual` - validates **Number**. Returns `true` if the tested value is greater than or equal to the valid value.\r\n- `lessThan` - validates **Number**. Returns `true` if the tested value is less than the valid value. Opposite of `greaterThan`.\r\n- `lessThanOrEqual` - validates **Number**. Returns `true` if the tested value is less than or equal to the valid value.\r\n\r\n### Gis Validators\r\n\r\n- `precision` - validates the accuracy of a [Location](https://docs.expo.io/versions/latest/sdk/location/#type-location) object.\r\n- `maxDistance` - calculates distance between two points and returns `true` if it's less than or equal to the valid value. The distance is calculated using eucledian formula. If you use geographic coordinates, you can pass a third parameter to tell the function that the distance should be calculated in meters instead of decimal degrees:\r\n\r\n```js\r\nimport { maxDistance } from 'validators/src/gisValidators.js';\r\n\r\nconst validValue = 100; // in meters\r\nconst p1 = [42.678748, 23.338703]; // in decimal degrees\r\nconst p2 = [42.678803, 23.338928]; // in decimal degrees\r\n\r\n// pass true so the distance can be calculated in meters and then compared to the valid value\r\nmaxDistance(validValue)(p1, p2, true);\r\n```\r\n\r\n## Tests\r\n\r\nCheck [tests](https://github.com/bojko108/validators/tree/master/tests) for more examples.\r\n\r\n## License\r\n\r\ntransformations is [MIT](https://github.com/bojko108/validators/tree/master/LICENSE) License @ bojko108\r\n",
+    "content": "# Validators\r\n\r\nSet of custom validation functions. You can read the documentation here: [https://bojko108.github.io/validators/](https://bojko108.github.io/validators/)\r\n\r\n## How to install\r\n\r\n```\r\nyarn add bojko108/validators\r\n```\r\n\r\n## How to use\r\n\r\n### Get a validator\r\n\r\n```js\r\nimport { getValidator } from 'validators';\r\n\r\nconst validator1 = getValidator({ name: 'precision' validValue: 10 });\r\nvalidator1.validate({ coords: { accuracy: 4 } }); // => true\r\n\r\nconst validator2 = getValidator({ name: 'between', validValue: [1, 4] });\r\nvalidator2.validate(1); // => true\r\n```\r\n\r\n### Add a custom validator\r\n\r\n```js\r\nimport { addValidator } from 'validators';\r\n\r\nconst validator = addValidator({\r\n  name: 'exact',\r\n  validValue: 1,\r\n  validate: value => {\r\n    return value === validValue;\r\n  }\r\n});\r\nvalidator.validate(value);\r\n```\r\n\r\n## Validators\r\n\r\nHere is a list of all predefined validators. You can use them by calling `getValidator({ name: <validatorName> })`. All custom validators added by `addValidator()` will be available in `getValidator()`. An error is thrown if a validator already exists and you try to redefine it with `addValidator()`.\r\n\r\n### Validators\r\n\r\n- `isDefined` - returns `true` if the value is defined. Returns `false` for `undefined` and `null`.\r\n- `isString` - returns `true` if the value is `string`.\r\n- `isArray` - returns `true` if the value type is `array`.\r\n- `isNumber` - returns `true` if the value type is `number`.\r\n- `isInteger` - returns `true` if the value is an integer `number`.\r\n- `isBoolean` - returns `true` if the value type is `boolean`.\r\n- `isFunction` - returns `true` if the value type is `function`.\r\n- `min` - validates length of **Array** or **String**. Returns `true` if the length is greater than or equal to the valid value.\r\n- `max` - validates length of **Array** or **String**. Returns `true` if the length is less than or equal to the valid value.\r\n- `contain` - validates **Array** or **String**. Returns `true` if the valid value contains tested value. Opposite of `notContain`.\r\n- `notContain` - validates **Array** or **String**. Returns `true` if the valid value does not contain tested value. Opposite of `contain`.\r\n- `like` - validates **String**. Returns `true` if the tested value is equal to the valid value. Opposite of `notLike`.\r\n- `notLike` - validates **String**. Returns `true` if the tested value is not equal to the valid value. Opposite of `like`.\r\n- `equal` - validates **Number**. Returns `true` if the tested value is equal to the valid value. Opposite of `notEqual`.\r\n- `notEqual` - validates **String**. Returns `true` if the tested value is not equal to the valid value. Opposite of `equal`.\r\n- `between` - validates **Number**. Returns `true` if the tested value is in the range of the valid value. Opposite of `notBetween`.\r\n- `notBetween` - validates strings. Returns `true` if the tested value is not in the range of the valid value. Opposite of `between`.\r\n- `inValues` - validates **Number** or **String**. Returns `true` if the tested value is present in valid value array. Opposite of `notInValues`.\r\n- `notInValues` - validates **Number** or **String**. Returns `true` if the tested value is not present in valid value array. Opposite of `inValues`.\r\n- `greaterThan` - validates **Number**. Returns `true` if the tested value is greater than the valid value. Opposite of `lessThan`.\r\n- `greaterThanOrEqual` - validates **Number**. Returns `true` if the tested value is greater than or equal to the valid value.\r\n- `lessThan` - validates **Number**. Returns `true` if the tested value is less than the valid value. Opposite of `greaterThan`.\r\n- `lessThanOrEqual` - validates **Number**. Returns `true` if the tested value is less than or equal to the valid value.\r\n\r\n### Gis Validators\r\n\r\n- `precision` - validates the accuracy of a [Location](https://docs.expo.io/versions/latest/sdk/location/#type-location) object.\r\n- `maxDistance` - calculates distance between two points and returns `true` if it's less than or equal to the valid value. The distance is calculated using eucledian formula. If you use geographic coordinates, you can pass a third parameter to tell the function that the distance should be calculated in meters instead of decimal degrees:\r\n\r\n```js\r\nimport { maxDistance } from 'validators/src/gisValidators.js';\r\n\r\nconst validValue = 100; // in meters\r\nconst p1 = [42.678748, 23.338703]; // in decimal degrees\r\nconst p2 = [42.678803, 23.338928]; // in decimal degrees\r\n\r\n// pass true so the distance can be calculated in meters before compared to the valid value\r\nmaxDistance(validValue)(p1, p2, true);\r\n```\r\n\r\n- `codeInDomain` - validates **Number** or **String**. Returns `true` if the tested value is present in the domain as a value.\r\n- `valueInDomain` - validates **Number** or **String**. Returns `true` if the tested value is present in the domain as a code.\r\n\r\n## Tests\r\n\r\nCheck [tests](https://github.com/bojko108/validators/tree/master/tests) for more examples.\r\n\r\n## License\r\n\r\ntransformations is [MIT](https://github.com/bojko108/validators/tree/master/LICENSE) License @ bojko108\r\n",
     "longname": "E:\\webprojects\\validators\\README.md",
     "name": "./README.md",
     "static": true,

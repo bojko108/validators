@@ -1,6 +1,6 @@
 {
   "name": "validators",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Set of custom validation functions.",
   "author": "bojko108 <bojko108@gmail.com>",
   "license": "MIT",
