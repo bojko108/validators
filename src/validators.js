@@ -441,3 +441,17 @@ export const isBoolean = () => {
   };
   return validator;
 };
+
+/**
+ * For **Any** - `value` is `function`
+ */
+export const isFunction = () => {
+  /**
+   * @param {*} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return typeof value === 'function';
+  };
+  return validator;
+};
