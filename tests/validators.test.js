@@ -1,238 +1,208 @@
 import { assert } from 'chai';
-import { addValidator, getValidator } from '../src/index';
+import { getValidator } from '../src/index';
 
 describe('Tests for Validators', () => {
-  it('Throws and error when validator parameter is undefined', () => {
-    assert.throws(() => {
-      getValidator();
-    }, "'validator' must be an object with a single property, which must be equal to one of the validator functions. For example: { required: null }, { precision: 4 }, { between: [1, 4] }, { maxDistance: 100 }");
-  });
-
-  it('Throws and error when validator does not exist', () => {
-    const name = 'nonExistingValidator';
-    assert.throws(() => {
-      getValidator({ [name]: 123 });
-    }, `Validator '${name}' could not be found! Try to define it with: addValidator(${name}, <callback>)`);
-  });
-
-  it('Get a validator', () => {
-    const validator = getValidator({ precision: 4 });
-    assert.isDefined(validator);
-    assert.isFunction(validator);
-  });
-
-  it('Add a custom validator', async done => {
-    const validator = addValidator('test', value => {
-      assert.isTrue(value);
-      done();
-    });
-    assert.isDefined(validator);
-    assert.isFunction(validator);
-
-    validator(true);
-  });
-
   it('Test "isDefined" validator', () => {
-    const validator = getValidator({ isDefined: null });
-    assert.isTrue(validator('asd'));
-    assert.isTrue(validator({ a: 'test' }));
-    assert.isTrue(validator(1));
-    assert.isTrue(validator(true));
-    assert.isFalse(validator());
-    assert.isFalse(validator(''));
-    assert.isFalse(validator(undefined));
-    assert.isFalse(validator(null));
+    const validator = getValidator({ name: 'isDefined' });
+    assert.isTrue(validator.validate('asd'));
+    assert.isTrue(validator.validate({ a: 'test' }));
+    assert.isTrue(validator.validate(1));
+    assert.isTrue(validator.validate(true));
+    assert.isFalse(validator.validate());
+    assert.isFalse(validator.validate(''));
+    assert.isFalse(validator.validate(undefined));
+    assert.isFalse(validator.validate(null));
   });
 
   it('Test "precision" validator', () => {
-    const validator = getValidator({ precision: 10 });
-    assert.isTrue(validator({ coords: { accuracy: 4 } }));
-    assert.isTrue(validator({ accuracy: 10 }));
-    assert.isFalse(validator({ accuracy: 12 }));
+    const validator = getValidator({ name: 'precision', validValue: 10 });
+    assert.isTrue(validator.validate({ coords: { accuracy: 4 } }));
+    assert.isTrue(validator.validate({ accuracy: 10 }));
+    assert.isFalse(validator.validate({ accuracy: 12 }));
   });
 
   it('Test "min" validator', () => {
-    const validator = getValidator({ min: 3 });
-    assert.isFalse(validator('as'));
-    assert.isTrue(validator('asd'));
-    assert.isTrue(validator('asdf'));
+    const validator = getValidator({ name: 'min', validValue: 3 });
+    assert.isFalse(validator.validate('as'));
+    assert.isTrue(validator.validate('asd'));
+    assert.isTrue(validator.validate('asdf'));
 
-    assert.isFalse(validator([1, 2]));
-    assert.isTrue(validator([1, 2, 3]));
-    assert.isTrue(validator([1, 2, 3, 4]));
+    assert.isFalse(validator.validate([1, 2]));
+    assert.isTrue(validator.validate([1, 2, 3]));
+    assert.isTrue(validator.validate([1, 2, 3, 4]));
   });
 
   it('Test "max" validator', () => {
-    const validator = getValidator({ max: 3 });
-    assert.isTrue(validator('as'));
-    assert.isTrue(validator('asd'));
-    assert.isFalse(validator('asdf'));
+    const validator = getValidator({ name: 'max', validValue: 3 });
+    assert.isTrue(validator.validate('as'));
+    assert.isTrue(validator.validate('asd'));
+    assert.isFalse(validator.validate('asdf'));
 
-    assert.isTrue(validator([1, 2]));
-    assert.isTrue(validator([1, 2, 3]));
-    assert.isFalse(validator([1, 2, 3, 4]));
+    assert.isTrue(validator.validate([1, 2]));
+    assert.isTrue(validator.validate([1, 2, 3]));
+    assert.isFalse(validator.validate([1, 2, 3, 4]));
   });
 
   it('Test "contain" validator', () => {
-    const validator = getValidator({ contain: 'test' });
-    assert.isTrue(validator('testA'));
-    assert.isTrue(validator('B test'));
-    assert.isFalse(validator('asd'));
-    assert.isTrue(validator([1, 'test']));
-    assert.isFalse(validator([1, 2]));
+    const validator = getValidator({ name: 'contain', validValue: 'test' });
+    assert.isTrue(validator.validate('testA'));
+    assert.isTrue(validator.validate('B test'));
+    assert.isFalse(validator.validate('asd'));
+    assert.isTrue(validator.validate([1, 'test']));
+    assert.isFalse(validator.validate([1, 2]));
   });
 
   it('Test "notContain" validator', () => {
-    const validator = getValidator({ contain: 'test' });
-    assert.isTrue(validator('testA'));
-    assert.isTrue(validator('B test'));
-    assert.isFalse(validator('asd'));
-    assert.isTrue(validator([1, 'test']));
-    assert.isFalse(validator([1, 2]));
+    const validator = getValidator({ name: 'contain', validValue: 'test' });
+    assert.isTrue(validator.validate('testA'));
+    assert.isTrue(validator.validate('B test'));
+    assert.isFalse(validator.validate('asd'));
+    assert.isTrue(validator.validate([1, 'test']));
+    assert.isFalse(validator.validate([1, 2]));
   });
 
   it('Test "equal" validator', () => {
-    const validator = getValidator({ equal: 2 });
-    assert.isTrue(validator(2));
-    assert.isFalse(validator(22));
-    assert.isTrue(validator('2'));
+    const validator = getValidator({ name: 'equal', validValue: 2 });
+    assert.isTrue(validator.validate(2));
+    assert.isFalse(validator.validate(22));
+    assert.isTrue(validator.validate('2'));
   });
 
   it('Test "notEqual" validator', () => {
-    const validator = getValidator({ notEqual: 2 });
-    assert.isFalse(validator(2));
-    assert.isTrue(validator(22));
-    assert.isFalse(validator('2'));
+    const validator = getValidator({ name: 'notEqual', validValue: 2 });
+    assert.isFalse(validator.validate(2));
+    assert.isTrue(validator.validate(22));
+    assert.isFalse(validator.validate('2'));
   });
 
   it('Test "like" validator', () => {
-    const validator = getValidator({ like: 'test' });
-    assert.isTrue(validator('test'));
-    assert.isFalse(validator('test A'));
-    assert.isFalse(validator('Test'));
+    const validator = getValidator({ name: 'like', validValue: 'test' });
+    assert.isTrue(validator.validate('test'));
+    assert.isFalse(validator.validate('test A'));
+    assert.isFalse(validator.validate('Test'));
   });
 
   it('Test "notLike" validator', () => {
-    const validator = getValidator({ notLike: 'test' });
-    assert.isFalse(validator('test'));
-    assert.isTrue(validator('test A'));
-    assert.isTrue(validator('Test'));
+    const validator = getValidator({ name: 'notLike', validValue: 'test' });
+    assert.isFalse(validator.validate('test'));
+    assert.isTrue(validator.validate('test A'));
+    assert.isTrue(validator.validate('Test'));
   });
 
   it('Test "between" validator', () => {
-    const validator = getValidator({ between: [1, 4] });
-    assert.isTrue(validator(1));
-    assert.isTrue(validator(2));
-    assert.isTrue(validator(4));
-    assert.isFalse(validator(6));
+    const validator = getValidator({ name: 'between', validValue: [1, 4] });
+    assert.isTrue(validator.validate(1));
+    assert.isTrue(validator.validate(2));
+    assert.isTrue(validator.validate(4));
+    assert.isFalse(validator.validate(6));
   });
 
   it('Test "notBetween" validator', () => {
-    const validator = getValidator({ notBetween: [1, 4] });
-    assert.isFalse(validator(1));
-    assert.isFalse(validator(2));
-    assert.isFalse(validator(4));
-    assert.isTrue(validator(6));
+    const validator = getValidator({ name: 'notBetween', validValue: [1, 4] });
+    assert.isFalse(validator.validate(1));
+    assert.isFalse(validator.validate(2));
+    assert.isFalse(validator.validate(4));
+    assert.isTrue(validator.validate(6));
   });
 
   it('Test "inValues" validator', () => {
-    let validator = getValidator({ inValues: [1, 2, 3] });
-    assert.isTrue(validator(1));
-    assert.isTrue(validator(2));
-    assert.isTrue(validator(3));
-    assert.isFalse(validator(4));
+    let validator = getValidator({ name: 'inValues', validValue: [1, 2, 3] });
+    assert.isTrue(validator.validate(1));
+    assert.isTrue(validator.validate(2));
+    assert.isTrue(validator.validate(3));
+    assert.isFalse(validator.validate(4));
 
-    validator = getValidator({ inValues: ['a', 'b'] });
-    assert.isTrue(validator('a'));
-    assert.isTrue(validator('b'));
-    assert.isFalse(validator('c'));
+    validator = getValidator({ name: 'inValues', validValue: ['a', 'b'] });
+    assert.isTrue(validator.validate('a'));
+    assert.isTrue(validator.validate('b'));
+    assert.isFalse(validator.validate('c'));
   });
 
   it('Test "notInValues" validator', () => {
-    let validator = getValidator({ notInValues: [1, 2, 3] });
-    assert.isFalse(validator(1));
-    assert.isFalse(validator(2));
-    assert.isFalse(validator(3));
-    assert.isTrue(validator(4));
+    let validator = getValidator({ name: 'notInValues', validValue: [1, 2, 3] });
+    assert.isFalse(validator.validate(1));
+    assert.isFalse(validator.validate(2));
+    assert.isFalse(validator.validate(3));
+    assert.isTrue(validator.validate(4));
 
-    validator = getValidator({ notInValues: ['a', 'b'] });
-    assert.isFalse(validator('a'));
-    assert.isFalse(validator('b'));
-    assert.isTrue(validator('c'));
+    validator = getValidator({ name: 'notInValues', validValue: ['a', 'b'] });
+    assert.isFalse(validator.validate('a'));
+    assert.isFalse(validator.validate('b'));
+    assert.isTrue(validator.validate('c'));
   });
 
   it('Test "greaterThan" validator', () => {
-    const validator = getValidator({ greaterThan: 2 });
-    assert.isTrue(validator(12));
-    assert.isFalse(validator(2));
-    assert.isFalse(validator(1));
+    const validator = getValidator({ name: 'greaterThan', validValue: 2 });
+    assert.isTrue(validator.validate(12));
+    assert.isFalse(validator.validate(2));
+    assert.isFalse(validator.validate(1));
   });
 
   it('Test "greaterThanOrEqual" validator', () => {
-    const validator = getValidator({ greaterThanOrEqual: 2 });
-    assert.isTrue(validator(2));
-    assert.isTrue(validator(12));
-    assert.isFalse(validator(1));
+    const validator = getValidator({ name: 'greaterThanOrEqual', validValue: 2 });
+    assert.isTrue(validator.validate(2));
+    assert.isTrue(validator.validate(12));
+    assert.isFalse(validator.validate(1));
   });
 
   it('Test "lessThan" validator', () => {
-    const validator = getValidator({ lessThan: 2 });
-    assert.isTrue(validator(1));
-    assert.isTrue(validator(0));
-    assert.isFalse(validator(2));
+    const validator = getValidator({ name: 'lessThan', validValue: 2 });
+    assert.isTrue(validator.validate(1));
+    assert.isTrue(validator.validate(0));
+    assert.isFalse(validator.validate(2));
   });
 
   it('Test "lessThanOrEqual" validator', () => {
-    const validator = getValidator({ lessThanOrEqual: 2 });
-    assert.isTrue(validator(2));
-    assert.isTrue(validator(1));
-    assert.isFalse(validator(22));
+    const validator = getValidator({ name: 'lessThanOrEqual', validValue: 2 });
+    assert.isTrue(validator.validate(2));
+    assert.isTrue(validator.validate(1));
+    assert.isFalse(validator.validate(22));
   });
 
   it('Test "isString" validator', () => {
-    const validator = getValidator({ isString: null });
-    assert.isTrue(validator('test'));
-    assert.isTrue(validator('2'));
-    assert.isTrue(validator('false'));
-    assert.isFalse(validator(false));
-    assert.isFalse(validator(1));
-    assert.isFalse(validator());
+    const validator = getValidator({ name: 'isString' });
+    assert.isTrue(validator.validate('test'));
+    assert.isTrue(validator.validate('2'));
+    assert.isTrue(validator.validate('false'));
+    assert.isFalse(validator.validate(false));
+    assert.isFalse(validator.validate(1));
+    assert.isFalse(validator.validate());
   });
 
   it('Test "isArray" validator', () => {
-    const validator = getValidator({ isArray: null });
-    assert.isTrue(validator([]));
-    assert.isTrue(validator(['2']));
-    assert.isFalse(validator(false));
-    assert.isFalse(validator(1));
-    assert.isFalse(validator({}));
-    assert.isFalse(validator());
+    const validator = getValidator({ name: 'isArray' });
+    assert.isTrue(validator.validate([]));
+    assert.isTrue(validator.validate(['2']));
+    assert.isFalse(validator.validate(false));
+    assert.isFalse(validator.validate(1));
+    assert.isFalse(validator.validate({}));
+    assert.isFalse(validator.validate());
   });
 
   it('Test "isNumber" validator', () => {
-    const validator = getValidator({ isNumber: null });
-    assert.isTrue(validator(1));
-    assert.isTrue(validator(-1));
-    assert.isFalse(validator('1'));
-    assert.isFalse(validator());
-    assert.isFalse(validator({}));
-    assert.isFalse(validator(false));
+    const validator = getValidator({ name: 'isNumber' });
+    assert.isTrue(validator.validate(1));
+    assert.isTrue(validator.validate(-1));
+    assert.isFalse(validator.validate('1'));
+    assert.isFalse(validator.validate());
+    assert.isFalse(validator.validate({}));
+    assert.isFalse(validator.validate(false));
   });
 
   it('Test "isInteger" validator', () => {
-    const validator = getValidator({ isInteger: null });
-    assert.isTrue(validator(1));
-    assert.isTrue(validator(-1));
-    assert.isFalse(validator(3.1415926536));
+    const validator = getValidator({ name: 'isInteger' });
+    assert.isTrue(validator.validate(1));
+    assert.isTrue(validator.validate(-1));
+    assert.isFalse(validator.validate(3.1415926536));
   });
 
   it('Test "isBoolean" validator', () => {
-    const validator = getValidator({ isBoolean: null });
-    assert.isTrue(validator(true));
-    assert.isTrue(validator(false));
-    assert.isFalse(validator(1));
-    assert.isFalse(validator(0));
-    assert.isFalse(validator('true'));
-    assert.isFalse(validator());
+    const validator = getValidator({ name: 'isBoolean' });
+    assert.isTrue(validator.validate(true));
+    assert.isTrue(validator.validate(false));
+    assert.isFalse(validator.validate(1));
+    assert.isFalse(validator.validate(0));
+    assert.isFalse(validator.validate('true'));
+    assert.isFalse(validator.validate());
   });
 });

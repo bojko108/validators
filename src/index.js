@@ -7,11 +7,18 @@ import * as validators from './validators';
  * @property {!function(value: *): Boolean} validate - validator function which takes values and validates them
  * @property {String} [errorMessage]
  */
+/**
+ * @typedef ValidatorOptions
+ * @property {!String} name - name of the validator - should be unique
+ * @property {!*} validValue - valid value for this validator
+ * @property {String} [errorMessage]
+ */
 
 /**
  * Get a validator function
- * @param {Object} options - defines validator name and config. An object with a single property, which must be equal to
+ * @param {!ValidatorOptions} options - defines validator name and config. An object with a single property, which must be equal to
  * one of the validator functions. The value of this property can be any type.
+ * @param
  * @throws {Error} when `options` parameter is not defined
  * @throws {Error} when `options.name` parameter is not defined
  * @throws {Error} when there is no validation function defined
@@ -29,7 +36,8 @@ export const getValidator = options => {
   const { name, validValue, errorMessage } = options;
   let validate = options.validate;
   if (!name) {
-    throw '"options.name" is required and should be one of the validator functions';
+    const validNames = Object.keys(validators).join('","');
+    throw `"options.name" is required and should be one of: ${validNames}`;
   }
   if (!validate) {
     const func = validators[name];
