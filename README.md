@@ -28,10 +28,10 @@ validator2.validate(1); // => true
 import { addValidator } from 'validators';
 
 const validator = addValidator({
-  name'exact',
+  name: 'exact',
   validValue: 1,
-  validate: (value) => {
-    return value === validValue
+  validate: value => {
+    return value === validValue;
   }
 });
 validator.validate(value);
@@ -79,7 +79,7 @@ const validValue = 100; // in meters
 const p1 = [42.678748, 23.338703]; // in decimal degrees
 const p2 = [42.678803, 23.338928]; // in decimal degrees
 
-// pass true so the distance can be calculated in meters and then compared to the valid value
+// pass true so the distance can be calculated in meters before compared to the valid value
 maxDistance(validValue)(p1, p2, true);
 ```
 
