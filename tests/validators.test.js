@@ -32,8 +32,8 @@ describe('Tests for Validators', () => {
     validator(true);
   });
 
-  it('Test "required" validator', () => {
-    const validator = getValidator({ required: null });
+  it('Test "isDefined" validator', () => {
+    const validator = getValidator({ isDefined: null });
     assert.isTrue(validator('asd'));
     assert.isTrue(validator({ a: 'test' }));
     assert.isTrue(validator(1));

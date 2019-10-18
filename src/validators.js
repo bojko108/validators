@@ -3,11 +3,11 @@ export { maxDistance } from './gisValidators';
 /**
  * Checks whether the `value` is defined or not
  * @example
- * required()(4) => true
- * required()(null) => false
- * required()('') => false
+ * isDefined()(4) => true
+ * isDefined()(null) => false
+ * isDefined()('') => false
  */
-export const required = () => {
+export const isDefined = () => {
   /**
    * @param {*} value - to be checked
    * @return {Boolean}
