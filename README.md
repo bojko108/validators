@@ -50,6 +50,15 @@ Here is a list of all predefined validators. You can use them by calling `getVal
 - `isInteger` - returns `true` if the value is an integer `number`.
 - `isBoolean` - returns `true` if the value type is `boolean`.
 - `isFunction` - returns `true` if the value type is `function`.
+- `matches` - validates **String**. Returns `true` if the tested value matches a regular expression.
+
+```js
+import { matches } from 'validators/src/validators.js';
+
+// any special characters in the regular expression must be escaped when passed to "matches" method
+matches('^(DJ|OT)\\d{6,7}$')('DJ123456'); // true
+```
+
 - `min` - validates length of **Array** or **String**. Returns `true` if the length is greater than or equal to the valid value.
 - `max` - validates length of **Array** or **String**. Returns `true` if the length is less than or equal to the valid value.
 - `contain` - validates **Array** or **String**. Returns `true` if the valid value contains tested value. Opposite of `notContain`.

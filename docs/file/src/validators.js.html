@@ -56,6 +56,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThan">lessThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThanOrEqual">lessThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-like">like</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-matches">matches</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-max">max</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-min">min</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notBetween">notBetween</a></span></span></li>
@@ -539,6 +540,27 @@ export const isFunction = () =&gt; {
    */
   const validator = value =&gt; {
     return typeof value === &apos;function&apos;;
+  };
+  return validator;
+};
+
+/**
+ * For **String** - checks whether a value matches `validValue` regular expression
+ * @param {!String} validValue - any special characters in the regular expression must be escaped
+ * @example
+ * matches(&apos;^(DJ|OT)\\d{6,7}$&apos;)(&apos;OT123456&apos;) =&gt; true
+ * matches(&apos;^(DJ|OT)\\d{6,7}$&apos;)(&apos;DJ123456&apos;) =&gt; true
+ * matches(&apos;^(DJ|OT)\\d{6,7}$&apos;)(&apos;DJ123&apos;) =&gt; false
+ */
+export const matches = validValue =&gt; {
+  const regex = new RegExp(validValue);
+  /**
+   * Returns `true` if `value` matches `validValue` regular expression
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value =&gt; {
+    return regex.test(value);
   };
   return validator;
 };

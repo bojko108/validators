@@ -470,3 +470,24 @@ export const isFunction = () => {
   };
   return validator;
 };
+
+/**
+ * For **String** - checks whether a value matches `validValue` regular expression
+ * @param {!String} validValue - any special characters in the regular expression must be escaped
+ * @example
+ * matches('^(DJ|OT)\\d{6,7}$')('OT123456') => true
+ * matches('^(DJ|OT)\\d{6,7}$')('DJ123456') => true
+ * matches('^(DJ|OT)\\d{6,7}$')('DJ123') => false
+ */
+export const matches = validValue => {
+  const regex = new RegExp(validValue);
+  /**
+   * Returns `true` if `value` matches `validValue` regular expression
+   * @param {!Number} value - to be checked
+   * @return {Boolean}
+   */
+  const validator = value => {
+    return regex.test(value);
+  };
+  return validator;
+};

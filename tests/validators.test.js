@@ -215,4 +215,17 @@ describe('Tests for Validators', () => {
     assert.isFalse(validator.validate([]));
     assert.isFalse(validator.validate(true));
   });
+
+  it('Test "matches" validator', () => {
+    let validator = getValidator({ name: 'matches', validValue: '^(DJ|OT)\\d{6,7}$' });
+    assert.isTrue(validator.validate('DJ123456'));
+    assert.isTrue(validator.validate('DJ1234567'));
+    assert.isTrue(validator.validate('OT123456'));
+    assert.isTrue(validator.validate('OT1234567'));
+    assert.isFalse(validator.validate('AD123456'));
+    assert.isFalse(validator.validate('1OT1234567'));
+    assert.isFalse(validator.validate('12345678'));
+    assert.isFalse(validator.validate('DJOT1234'));
+    assert.isFalse(validator.validate('OT12345678'));
+  });
 });

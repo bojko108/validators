@@ -126,6 +126,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "validators/src/validators.js~matches",
+    "function/index.html#static-function-matches",
+    "<span>matches</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",
+    "function"
+  ],
+  [
     "validators/src/validators.js~max",
     "function/index.html#static-function-max",
     "<span>max</span> <span class=\"search-result-import-path\">validators/src/validators.js</span>",

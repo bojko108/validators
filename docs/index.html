@@ -56,6 +56,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThan">lessThan</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-lessThanOrEqual">lessThanOrEqual</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-like">like</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-matches">matches</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-max">max</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-min">min</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notBetween">notBetween</a></span></span></li>
@@ -99,6 +100,14 @@ validator.validate(value);</code>
 <li><code>isInteger</code> - returns <code>true</code> if the value is an integer <code>number</code>.</li>
 <li><code>isBoolean</code> - returns <code>true</code> if the value type is <code>boolean</code>.</li>
 <li><code>isFunction</code> - returns <code>true</code> if the value type is <code>function</code>.</li>
+<li><code>matches</code> - validates <strong>String</strong>. Returns <code>true</code> if the tested value matches a regular expression.</li>
+</ul>
+<pre><code class="lang-js"><code class="source-code prettyprint">import { matches } from &apos;validators/src/validators.js&apos;;
+
+// any special characters in the regular expression must be escaped when passed to &quot;matches&quot; method
+matches(&apos;^(DJ|OT)\\d{6,7}$&apos;)(&apos;DJ123456&apos;); // true</code>
+</code></pre>
+<ul>
 <li><code>min</code> - validates length of <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the length is greater than or equal to the valid value.</li>
 <li><code>max</code> - validates length of <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the length is less than or equal to the valid value.</li>
 <li><code>contain</code> - validates <strong>Array</strong> or <strong>String</strong>. Returns <code>true</code> if the valid value contains tested value. Opposite of <code>notContain</code>.</li>
